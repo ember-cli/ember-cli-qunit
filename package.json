@@ -1,0 +1,28 @@
+{
+  "name": "ember-cli-qunit",
+  "version": "0.0.1",
+  "description": "QUnit test package for ember-cli applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "ember-addon": {
+    "main": "index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakecraige/ember-cli-qunit.git"
+  },
+  "keywords": [
+    "ember-addon",
+    "ember",
+    "qunit"
+  ],
+  "author": "Jake Craige <jake@poeticsystems.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jakecraige/ember-cli-qunit/issues"
+  },
+  "homepage": "https://github.com/jakecraige/ember-cli-qunit"
+}
