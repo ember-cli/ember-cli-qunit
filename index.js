@@ -22,7 +22,7 @@ EmberCLIQUnit.prototype.treeFor = function treeFor(name) {
   var treePath = path.join(__dirname, 'vendor');
 
   if (fs.existsSync(treePath)) {
-    return treePath;
+    return unwatchedTree(treePath);
   }
 };
 
