@@ -40,6 +40,7 @@ EmberCLIQUnit.prototype.included = function included(app) {
     ];
 
     app.import('vendor/ember-qunit/dist/named-amd/main.js', {
+      type: 'test',
       exports: {
         'ember-qunit': [
           'globalize',
@@ -53,6 +54,7 @@ EmberCLIQUnit.prototype.included = function included(app) {
     });
 
     app.import('vendor/ember-cli-shims/test-shims.js', {
+      type: 'test',
       exports: {
         'qunit': ['default']
       }
