@@ -15,7 +15,6 @@ function unwatchedTree(dir) {
   };
 }
 
-
 EmberCLIQUnit.prototype.treeFor = function treeFor(name) {
   if(name !== 'vendor') { return; }
 
@@ -27,20 +26,49 @@ EmberCLIQUnit.prototype.treeFor = function treeFor(name) {
 };
 
 EmberCLIQUnit.prototype.included = function included(app) {
-  this.app = app;
+  if (app.tests) {
+    var fileAssets = [
+      'vendor/qunit/qunit/qunit.js',
+      'vendor/qunit/qunit/qunit.css',
+      'vendor/qunit-notifications/index.js',
+      'vendor/ember-cli-test-loader/test-loader.js'
+    ];
 
-  if (this.app.tests) {
-    this.app.import('vendor/qunit/qunit/qunit.js', {
-      type: 'test'
+    var imgAssets = [
+      'vendor/ember-qunit-notifications/passed.png',
+      'vendor/ember-qunit-notifications/failed.png',
+    ];
+
+    app.import('vendor/ember-qunit/dist/named-amd/main.js', {
+      exports: {
+        'ember-qunit': [
+          'globalize',
+          'moduleFor',
+          'moduleForComponent',
+          'moduleForModel',
+          'test',
+          'setResolver'
+        ]
+      }
     });
-    this.app.import('vendor/qunit/qunit/qunit.css', {
-      type: 'test'
+
+    app.import('vendor/ember-cli-shims/test-shims.js', {
+      exports: {
+        'qunit': ['default']
+      }
     });
-    this.app.import('vendor/qunit-notifications/index.js', {
-      type: 'test'
+
+    fileAssets.forEach(function(file){
+      app.import(file, {
+        type: 'test'
+      });
     });
-    this.app.import('vendor/ember-cli-test-loader/test-loader.js', {
-      type: 'test'
+
+    imgAssets.forEach(function(img){
+      app.import(img, {
+        type: 'test',
+        destDir: 'assets'
+      });
     });
   }
 };
