@@ -31,7 +31,6 @@ EmberCLIQUnit.prototype.included = function included(app) {
       'vendor/qunit/qunit/qunit.js',
       'vendor/qunit/qunit/qunit.css',
       'vendor/qunit-notifications/index.js',
-      'vendor/ember-cli-test-loader/test-loader.js'
     ];
 
     var imgAssets = [
