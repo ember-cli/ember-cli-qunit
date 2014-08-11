@@ -24,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/jakecraige/ember-cli-qunit/issues"
   },
-  "homepage": "https://github.com/jakecraige/ember-cli-qunit"
+  "homepage": "https://github.com/jakecraige/ember-cli-qunit",
+  "dependencies": {
+    "bower": "^1.3.9"
+  },
+  "bundledDependencies": [
+    "bower"
+  ]
 }
