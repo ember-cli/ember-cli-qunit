@@ -3,7 +3,7 @@
   "dependencies": {
     "qunit": "~1.12.0",
     "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.3",
-    "ember-qunit-notifications": "~0.0.3",
+    "ember-qunit-notifications": "~0.0.4",
     "ember-qunit": "~0.1.8"
   }
 }
