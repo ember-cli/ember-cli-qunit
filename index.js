@@ -1,77 +1,62 @@
 'use strict';
 
-var path      = require('path');
-var fs        = require('fs');
+var path = require('path');
 
-function EmberCLIQUnit(project) {
-  this.project = project;
-  this.name    = 'Ember CLI QUnit';
-}
+module.exports = {
+  name: 'Ember CLI QUnit',
 
-function unwatchedTree(dir) {
-  return {
-    read:    function() { return dir; },
-    cleanup: function() { }
-  };
-}
+  blueprintsPath: function() {
+    return path.join(__dirname, 'blueprints');
+  },
 
-EmberCLIQUnit.prototype.treeFor = function treeFor(name) {
-  if(name !== 'vendor') { return; }
+  included: function included(app) {
+    this._super.included(app);
 
-  var treePath = path.join(__dirname, 'vendor');
+    if (app.tests) {
+      var fileAssets = [
+        'bower_components/qunit/qunit/qunit.js',
+        'bower_components/qunit/qunit/qunit.css',
+        'bower_components/qunit-notifications/index.js',
+      ];
 
-  if (fs.existsSync(treePath)) {
-    return unwatchedTree(treePath);
-  }
-};
+      var imgAssets = [
+        'bower_components/ember-qunit-notifications/passed.png',
+        'bower_components/ember-qunit-notifications/failed.png',
+      ];
 
-EmberCLIQUnit.prototype.included = function included(app) {
-  if (app.tests) {
-    var fileAssets = [
-      'vendor/qunit/qunit/qunit.js',
-      'vendor/qunit/qunit/qunit.css',
-      'vendor/qunit-notifications/index.js',
-    ];
-
-    var imgAssets = [
-      'vendor/ember-qunit-notifications/passed.png',
-      'vendor/ember-qunit-notifications/failed.png',
-    ];
-
-    app.import('vendor/ember-qunit/dist/named-amd/main.js', {
-      type: 'test',
-      exports: {
-        'ember-qunit': [
-          'globalize',
-          'moduleFor',
-          'moduleForComponent',
-          'moduleForModel',
-          'test',
-          'setResolver'
-        ]
-      }
-    });
-
-    app.import('vendor/ember-cli-shims/test-shims.js', {
-      type: 'test',
-      exports: {
-        'qunit': ['default']
-      }
-    });
-
-    fileAssets.forEach(function(file){
-      app.import(file, {
-        type: 'test'
-      });
-    });
-
-    imgAssets.forEach(function(img){
-      app.import(img, {
+      app.import('bower_components/ember-qunit/dist/named-amd/main.js', {
         type: 'test',
-        destDir: 'assets'
+        exports: {
+          'ember-qunit': [
+            'globalize',
+            'moduleFor',
+            'moduleForComponent',
+            'moduleForModel',
+            'test',
+            'setResolver'
+          ]
+        }
       });
-    });
+
+      app.import('bower_components/ember-cli-shims/test-shims.js', {
+        type: 'test',
+        exports: {
+          'qunit': ['default']
+        }
+      });
+
+      fileAssets.forEach(function(file){
+        app.import(file, {
+          type: 'test'
+        });
+      });
+
+      imgAssets.forEach(function(img){
+        app.import(img, {
+          type: 'test',
+          destDir: 'assets'
+        });
+      });
+    }
   }
 };
-
-module.exports = EmberCLIQUnit;
