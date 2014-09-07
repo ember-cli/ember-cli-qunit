@@ -14,17 +14,17 @@ module.exports = {
 
     if (app.tests) {
       var fileAssets = [
-        'bower_components/qunit/qunit/qunit.js',
-        'bower_components/qunit/qunit/qunit.css',
-        'bower_components/qunit-notifications/index.js',
+        app.bowerDirectory + '/qunit/qunit/qunit.js',
+        app.bowerDirectory + '/qunit/qunit/qunit.css',
+        app.bowerDirectory + '/qunit-notifications/index.js',
       ];
 
       var imgAssets = [
-        'bower_components/ember-qunit-notifications/passed.png',
-        'bower_components/ember-qunit-notifications/failed.png',
+        app.bowerDirectory + '/ember-qunit-notifications/passed.png',
+        app.bowerDirectory + '/ember-qunit-notifications/failed.png',
       ];
 
-      app.import('bower_components/ember-qunit/dist/named-amd/main.js', {
+      app.import(app.bowerDirectory + '/ember-qunit/dist/named-amd/main.js', {
         type: 'test',
         exports: {
           'ember-qunit': [
@@ -38,7 +38,7 @@ module.exports = {
         }
       });
 
-      app.import('bower_components/ember-cli-shims/test-shims.js', {
+      app.import(app.bowerDirectory + '/ember-cli-shims/test-shims.js', {
         type: 'test',
         exports: {
           'qunit': ['default']
