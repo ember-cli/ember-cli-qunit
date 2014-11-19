@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-qunit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "QUnit testing package for ember-cli applications",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,6 @@
     "url": "https://github.com/jakecraige/ember-cli-qunit/issues"
   },
   "homepage": "https://github.com/jakecraige/ember-cli-qunit",
-  "dependencies": { },
-  "bundledDependencies": [ ]
+  "dependencies": {},
+  "bundledDependencies": []
 }
