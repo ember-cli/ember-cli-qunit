@@ -10,8 +10,13 @@ module.exports = {
     return path.join(__dirname, 'blueprints');
   },
 
-  included: function included(app) {
-    this._super.included(app);
+  included: function included(app, parentAddon) {
+    var target = (parentAddon || app);
+    this._super.included(target);
+
+    var testSupportPath = target.options.outputPath.testSupport.js;
+    testSupportPath = testSupportPath.js.testSupport || testSupportPath;
+    testSupportPath = path.dirname(testSupportPath) || 'assets';
 
     if (app.tests) {
       var fileAssets = [
@@ -55,7 +60,7 @@ module.exports = {
       imgAssets.forEach(function(img){
         app.import(img, {
           type: 'test',
-          destDir: 'assets'
+          destDir: testSupportPath
         });
       });
     }
