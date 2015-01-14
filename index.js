@@ -25,6 +25,12 @@ module.exports = {
         app.bowerDirectory + '/qunit-notifications/index.js',
       ];
 
+
+      var addonOptions = target.options['ember-cli-qunit'];
+      if (addonOptions && !addonOptions.disableContainerStyles) {
+        fileAssets.push('vendor/ember-cli-qunit/test-container-styles.css');
+      }
+
       var imgAssets = [
         app.bowerDirectory + '/ember-qunit-notifications/passed.png',
         app.bowerDirectory + '/ember-qunit-notifications/failed.png',
