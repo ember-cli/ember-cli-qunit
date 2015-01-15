@@ -14,8 +14,8 @@ module.exports = {
     var target = (parentAddon || app);
     this._super.included(target);
 
-    var testSupportPath = target.options.outputPath.testSupport.js;
-    testSupportPath = testSupportPath.js.testSupport || testSupportPath;
+    var testSupportPath = target.options.outputPaths.testSupport.js;
+    testSupportPath = testSupportPath.testSupport || testSupportPath;
     testSupportPath = path.dirname(testSupportPath) || 'assets';
 
     if (app.tests) {
