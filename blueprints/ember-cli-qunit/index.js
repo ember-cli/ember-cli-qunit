@@ -8,12 +8,12 @@ module.exports = {
   afterInstall: function() {
     var addonContext = this;
 
-    return this.addBowerPackageToProject('qunit', '~1.16.0')
+    return this.addBowerPackageToProject('qunit', '~1.17.0')
       .then(function() {
         return addonContext.addBowerPackageToProject('stefanpenner/ember-cli-shims', '0.0.3');
       })
       .then(function() {
-        return addonContext.addBowerPackageToProject('ember-qunit-notifications', '0.0.4');
+        return addonContext.addBowerPackageToProject('ember-qunit-notifications', '0.0.5');
       })
       .then(function() {
         return addonContext.addBowerPackageToProject('ember-qunit', '0.1.8');
