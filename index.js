@@ -2,6 +2,7 @@
 
 var path = require('path');
 var fs   = require('fs');
+var jshintTrees = require('broccoli-jshint');
 
 module.exports = {
   name: 'Ember CLI QUnit',
@@ -70,6 +71,8 @@ module.exports = {
         });
       });
     }
+
+    this.jshintrc = app.options.jshintrc;
   },
 
   contentFor: function(type) {
@@ -80,5 +83,16 @@ module.exports = {
 
   _readTemplate: function(name) {
     return fs.readFileSync(path.join(__dirname, 'templates', name + '.html'));
+  },
+
+  postprocessTree: function(type, tree) {
+    if (type === 'lint-app' || type === 'lint-tests' || type === 'lint-addon') {
+      return jshintTrees(tree, {
+        jshintrcPath: this.jshintrc.tests,
+        description: 'JSHint ' +  type.slice(5) + '- QUnit'
+      });
+    } else {
+      return tree;
+    }
   }
 };
