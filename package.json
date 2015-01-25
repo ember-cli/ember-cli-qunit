@@ -24,6 +24,8 @@
     "url": "https://github.com/jakecraige/ember-cli-qunit/issues"
   },
   "homepage": "https://github.com/jakecraige/ember-cli-qunit",
-  "dependencies": {},
+  "dependencies": {
+    "broccoli-jshint": "0.5.3"
+  },
   "bundledDependencies": []
 }
