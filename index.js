@@ -85,14 +85,10 @@ module.exports = {
     return fs.readFileSync(path.join(__dirname, 'templates', name + '.html'));
   },
 
-  postprocessTree: function(type, tree) {
-    if (type === 'lint-app' || type === 'lint-tests' || type === 'lint-addon') {
-      return jshintTrees(tree, {
-        jshintrcPath: this.jshintrc.tests,
-        description: 'JSHint ' +  type.slice(5) + '- QUnit'
-      });
-    } else {
-      return tree;
-    }
+  lintTree: function(type, tree) {
+    return jshintTrees(tree, {
+      jshintrcPath: this.jshintrc.tests,
+      description: 'JSHint ' +  type + '- QUnit'
+    });
   }
 };
