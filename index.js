@@ -24,6 +24,8 @@ module.exports = {
         app.bowerDirectory + '/qunit/qunit/qunit.js',
         app.bowerDirectory + '/qunit/qunit/qunit.css',
         app.bowerDirectory + '/qunit-notifications/index.js',
+        'vendor/ember-cli-qunit/qunit-configuration.js',
+        'vendor/ember-cli-qunit/test-loader.js'
       ];
 
 
