@@ -13,6 +13,14 @@ if (QUnit.notifications) {
 }
 
 jQuery(document).ready(function() {
-  var containerVisibility = QUnit.urlParams.nocontainer ? 'hidden' : 'visible';
-  document.getElementById('ember-testing-container').style.visibility = containerVisibility;
+  if(QUnit.urlParams.nocontainer) {
+    document.getElementById('ember-testing-container').style.visibility = 'hidden';
+    document.getElementById('qunit').style.width = "100%";
+  }
+
+  var appContainer = document.getElementById('ember-testing-container').contentWindow.document;
+  // Copy the head of the main test html file to the iFrame to get stylesheets
+  appContainer.head.innerHTML = document.head.innerHTML;
+
+  appContainer.body.style.zoom = "50%";
 });
