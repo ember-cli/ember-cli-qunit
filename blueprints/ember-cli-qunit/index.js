@@ -19,7 +19,7 @@ module.exports = {
         return addonContext.addBowerPackageToProject('ember-qunit-notifications', '0.0.5');
       })
       .then(function() {
-        return addonContext.addBowerPackageToProject('ember-qunit', '0.1.8');
+        return addonContext.addBowerPackageToProject('ember-qunit', 'rwjblue/ember-qunit-builds#0.2.0');
       });
   }
 };
