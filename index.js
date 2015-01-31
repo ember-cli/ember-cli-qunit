@@ -39,7 +39,12 @@ module.exports = {
         app.bowerDirectory + '/ember-qunit-notifications/failed.png',
       ];
 
-      app.import(app.bowerDirectory + '/ember-qunit/dist/named-amd/main.js', {
+      var emberQunitPath = app.bowerDirectory + '/ember-qunit/ember-qunit.amd.js';
+      if (!fs.existsSync(emberQunitPath)) {
+        emberQunitPath = app.bowerDirectory + '/ember-qunit/named-amd/main.js';
+      }
+
+      app.import(emberQunitPath, {
         type: 'test',
         exports: {
           'ember-qunit': [
