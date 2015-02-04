@@ -5,5 +5,9 @@ jQuery(document).ready(function() {
   TestLoader.prototype.shouldLoadModule = function(moduleName) {
     return moduleName.match(/[-_]test$/) || (!QUnit.urlParams.nojshint && moduleName.match(/\.jshint$/));
   };
-  TestLoader.load();
+
+  setTimeout(function() {
+    TestLoader.load();
+    QUnit.start();
+  }, 250);
 });

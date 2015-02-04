@@ -1,5 +1,6 @@
 /* globals jQuery,QUnit */
 
+QUnit.config.autostart = false;
 QUnit.config.urlConfig.push({ id: 'nocontainer', label: 'Hide container' });
 QUnit.config.urlConfig.push({ id: 'nojshint', label: 'Disable JSHint'});
 
