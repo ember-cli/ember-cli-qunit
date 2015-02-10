@@ -11,7 +11,7 @@ module.exports = {
       { name: 'stefanpenner/ember-cli-shims',    target: '0.0.3'   },
       { name: 'ember-cli/ember-cli-test-loader', target: '0.1.0'   },
       { name: 'ember-qunit-notifications',       target: '0.0.5'   },
-      { name: 'ember-qunit',                     target: 'rwjblue/ember-qunit-builds#0.2.1' }
+      { name: 'ember-qunit',                     target: '0.2.5' }
     ]);
   }
 };
