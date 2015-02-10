@@ -8,10 +8,9 @@ module.exports = {
   afterInstall: function() {
     return this.addBowerPackagesToProject([
       { name: 'qunit',                           target: '~1.17.0' },
-      { name: 'stefanpenner/ember-cli-shims',    target: '0.0.3'   },
       { name: 'ember-cli/ember-cli-test-loader', target: '0.1.0'   },
       { name: 'ember-qunit-notifications',       target: '0.0.5'   },
-      { name: 'ember-qunit',                     target: '0.2.5' }
+      { name: 'ember-qunit',                     target: '0.2.6' }
     ]);
   }
 };

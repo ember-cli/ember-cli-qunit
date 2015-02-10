@@ -47,6 +47,12 @@ module.exports = {
       app.import(emberQunitPath, {
         type: 'test',
         exports: {
+          'qunit': [
+            'default',
+            'module',
+            'test'
+          ],
+
           'ember-qunit': [
             'globalize',
             'moduleFor',
@@ -55,13 +61,6 @@ module.exports = {
             'test',
             'setResolver'
           ]
-        }
-      });
-
-      app.import(app.bowerDirectory + '/ember-cli-shims/test-shims.js', {
-        type: 'test',
-        exports: {
-          'qunit': ['default']
         }
       });
 
