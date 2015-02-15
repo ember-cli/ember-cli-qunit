@@ -22,22 +22,29 @@ module.exports = {
     if (app.tests) {
       var fileAssets = [
         app.bowerDirectory + '/qunit/qunit/qunit.js',
-        app.bowerDirectory + '/qunit/qunit/qunit.css',
-        app.bowerDirectory + '/qunit-notifications/index.js',
-        'vendor/ember-cli-qunit/qunit-configuration.js',
-        'vendor/ember-cli-qunit/test-loader.js'
+        app.bowerDirectory + '/qunit/qunit/qunit.css'
       ];
 
+      var imgAssets = [];
+
+      var qunitNotificationsPath = app.bowerDirectory + '/qunit-notifications/index.js';
+      if (fs.existsSync(qunitNotificationsPath)) {
+        fileAssets.push(qunitNotificationsPath);
+        imgAssets.push(
+          app.bowerDirectory + '/ember-qunit-notifications/passed.png',
+          app.bowerDirectory + '/ember-qunit-notifications/failed.png'
+        );
+      }
+
+      fileAssets.push(
+        'vendor/ember-cli-qunit/qunit-configuration.js',
+        'vendor/ember-cli-qunit/test-loader.js'
+      );
 
       var addonOptions = target.options['ember-cli-qunit'];
       if (addonOptions && !addonOptions.disableContainerStyles) {
         fileAssets.push('vendor/ember-cli-qunit/test-container-styles.css');
       }
-
-      var imgAssets = [
-        app.bowerDirectory + '/ember-qunit-notifications/passed.png',
-        app.bowerDirectory + '/ember-qunit-notifications/failed.png',
-      ];
 
       var emberQunitPath = app.bowerDirectory + '/ember-qunit/ember-qunit.amd.js';
       if (!fs.existsSync(emberQunitPath)) {
