@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jakecraige/ember-cli-qunit.git"
+    "url": "https://github.com/ember-cli/ember-cli-qunit.git"
   },
   "keywords": [
     "ember-addon",
@@ -21,9 +21,9 @@
   "author": "Jake Craige <jake@poeticsystems.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jakecraige/ember-cli-qunit/issues"
+    "url": "https://github.com/ember-cli/ember-cli-qunit/issues"
   },
-  "homepage": "https://github.com/jakecraige/ember-cli-qunit",
+  "homepage": "https://github.com/ember-cli/ember-cli-qunit",
   "dependencies": {
     "broccoli-jshint": "0.5.3"
   },
