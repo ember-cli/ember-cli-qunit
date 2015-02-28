@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-qunit",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "QUnit testing package for ember-cli applications",
   "main": "index.js",
   "scripts": {
