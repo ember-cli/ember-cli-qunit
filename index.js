@@ -7,6 +7,29 @@ var jshintTrees = require('broccoli-jshint');
 module.exports = {
   name: 'Ember CLI QUnit',
 
+  buildConsole: function() {
+    var ui = this.ui;
+
+    if (!ui) {
+      this.console = console;
+      return;
+    }
+
+    this.console = {
+      log: function(data) {
+        ui.writeLine(data);
+      },
+
+      error: function(data) {
+        ui.writeLine(data, 'ERROR');
+      }
+    }
+  },
+
+  init: function() {
+    this.buildConsole();
+  },
+
   blueprintsPath: function() {
     return path.join(__dirname, 'blueprints');
   },
@@ -99,9 +122,12 @@ module.exports = {
   },
 
   lintTree: function(type, tree) {
+    var ui = this.ui;
+
     return jshintTrees(tree, {
       jshintrcPath: this.jshintrc[type],
-      description: 'JSHint ' +  type + '- QUnit'
+      description: 'JSHint ' +  type + '- QUnit',
+      console: this.console
     });
   }
 };
