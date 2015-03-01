@@ -1,14 +1,23 @@
 #ember-testing-container {
   position: absolute;
-  background: white;
-  bottom: 0;
+  top: 0;
   right: 0;
-  width: 640px;
-  height: 384px;
+  width: 50%;
+  height: 100%;
   overflow: auto;
   z-index: 9999;
   border: 1px solid #ccc;
+  background: white;
 }
-#ember-testing {
-  zoom: 50%;
+
+#qunit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: auto;
+  z-index: 9999;
+  border: 1px solid #ccc;
+  background: white;
 }
