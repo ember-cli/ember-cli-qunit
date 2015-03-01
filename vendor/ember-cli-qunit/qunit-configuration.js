@@ -1,4 +1,4 @@
-/* globals jQuery,QUnit */
+/* globals QUnit */
 
 QUnit.config.autostart = false;
 QUnit.config.urlConfig.push({ id: 'nocontainer', label: 'Hide container' });
@@ -13,7 +13,5 @@ if (QUnit.notifications) {
   });
 }
 
-jQuery(document).ready(function() {
-  var containerVisibility = QUnit.urlParams.nocontainer ? 'hidden' : 'visible';
-  document.getElementById('ember-testing-container').style.visibility = containerVisibility;
-});
+var containerVisibility = QUnit.urlParams.nocontainer ? 'hidden' : 'visible';
+document.getElementById('ember-testing-container').style.visibility = containerVisibility;
