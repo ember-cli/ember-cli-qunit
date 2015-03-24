@@ -1,1 +1,13 @@
 node_modules
+<<<<<<< HEAD
+=======
+npm-debug.log
+tmp*
+_posts
+_site
+common-tmp
+*.tgz
+docs/build
+.node_modules-tmp
+.bower_components-tmp
+>>>>>>> 07b3bba3d3c0edd466c85d871df0b88122bc6361
