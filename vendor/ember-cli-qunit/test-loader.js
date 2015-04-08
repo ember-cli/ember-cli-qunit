@@ -13,8 +13,14 @@ jQuery(document).ready(function() {
     });
   };
 
+  var autostart = QUnit.config.autostart !== false;
+  QUnit.config.autostart = false;
+
   setTimeout(function() {
     TestLoader.load();
-    QUnit.start();
+
+    if (autostart) {
+      QUnit.start();
+    }
   }, 250);
 });
