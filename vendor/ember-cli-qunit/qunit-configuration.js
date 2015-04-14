@@ -3,6 +3,7 @@
 QUnit.config.urlConfig.push({ id: 'nocontainer', label: 'Hide container'});
 QUnit.config.urlConfig.push({ id: 'nojshint', label: 'Disable JSHint'});
 QUnit.config.urlConfig.push({ id: 'doccontainer', label: 'Doc test pane'});
+QUnit.config.testTimeout = 300000 //Default Test Timeout 5 Minutes
 
 if (QUnit.notifications) {
   QUnit.notifications({
