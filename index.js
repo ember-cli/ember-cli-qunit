@@ -45,6 +45,7 @@ module.exports = {
     if (app.tests) {
       var fileAssets = [
         app.bowerDirectory + '/qunit/qunit/qunit.js',
+        app.bowerDirectory + '/qunit-once/qunit-once.js',
         app.bowerDirectory + '/qunit/qunit/qunit.css'
       ];
 
