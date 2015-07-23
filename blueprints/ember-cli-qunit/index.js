@@ -10,7 +10,7 @@ module.exports = {
       { name: 'qunit',                           target: '~1.17.1' },
       { name: 'ember-cli/ember-cli-test-loader', target: '0.1.3'   },
       { name: 'ember-qunit-notifications',       target: '0.0.7'   },
-      { name: 'ember-qunit',                     target: '0.4.2'   }
+      { name: 'ember-qunit',                     target: '0.4.5'   }
     ]);
   }
 };
