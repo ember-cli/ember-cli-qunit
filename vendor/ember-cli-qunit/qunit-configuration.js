@@ -15,8 +15,11 @@ if (QUnit.notifications) {
 }
 
 jQuery(document).ready(function() {
+  var testContainer = document.getElementById('ember-testing-container');
+  if (!testContainer) { return; }
+
   var containerVisibility = QUnit.urlParams.nocontainer ? 'hidden' : 'visible';
   var containerPosition = QUnit.urlParams.dockcontainer ? 'absolute' : 'relative';
-  document.getElementById('ember-testing-container').style.visibility = containerVisibility;
-  document.getElementById('ember-testing-container').style.position = containerPosition;
+  testContainer.style.visibility = containerVisibility;
+  testContainer.style.position = containerPosition;
 });
