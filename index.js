@@ -38,6 +38,8 @@ module.exports = {
     var target = (parentAddon || app);
     this._super.included(target);
 
+    this.options = target.options;
+
     var testSupportPath = target.options.outputPaths.testSupport.js;
     testSupportPath = testSupportPath.testSupport || testSupportPath;
     testSupportPath = path.dirname(testSupportPath) || 'assets';
@@ -65,7 +67,8 @@ module.exports = {
       );
 
       var addonOptions = target.options['ember-cli-qunit'];
-      if (addonOptions && !addonOptions.disableContainerStyles) {
+      // Skip if disableContainerStyles === false.
+      if (addonOptions && addonOptions.disableContainerStyles === false) {
         fileAssets.push('vendor/ember-cli-qunit/test-container-styles.css');
       }
 
@@ -112,7 +115,8 @@ module.exports = {
   },
 
   contentFor: function(type) {
-    if (type === 'test-body') {
+    // Skip if insertContentForTestBody === false.
+    if (type === 'test-body' && !(this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].insertContentForTestBody === false)) {
       return this._readTemplate('test-body');
     }
   },
@@ -122,6 +126,11 @@ module.exports = {
   },
 
   lintTree: function(type, tree) {
+    // Skip if useLintTree === false.
+    if (this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].useLintTree === false) {
+      return tree;
+    }
+
     var ui = this.ui;
 
     return jshintTrees(tree, {
