@@ -7,8 +7,7 @@ This addon that adds `QUnit` to the generated Ember CLI test output (in `test-ve
 From within your Ember CLI application (must be > 0.0.42), run the following:
 
 ```bash
-npm install --save-dev ember-cli-qunit
-ember generate ember-cli-qunit
+ember install ember-cli-qunit
 ```
 
 ### Upgrading
