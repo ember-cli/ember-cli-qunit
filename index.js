@@ -23,7 +23,7 @@ module.exports = {
       error: function(data) {
         ui.writeLine(data, 'ERROR');
       }
-    }
+    };
   },
 
   init: function() {
@@ -128,7 +128,8 @@ module.exports = {
   lintTree: function(type, tree) {
     // Skip if useLintTree === false.
     if (this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].useLintTree === false) {
-      return tree;
+      // Fakes an empty broccoli tree
+      return { inputTree: tree, rebuild: function() { return []; } };
     }
 
     var ui = this.ui;
