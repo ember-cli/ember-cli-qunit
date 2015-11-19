@@ -16,7 +16,7 @@ ember install ember-cli-qunit
 ember generate ember-cli-qunit
 ```
 
-### Turning of JSHint linting
+### Turning off JSHint linting
 
 If you want to turn off JSHint linting you can do the following configuration in your `ember-cli-build.js` file:
 
