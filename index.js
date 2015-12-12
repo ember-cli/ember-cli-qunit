@@ -2,7 +2,10 @@
 
 var path = require('path');
 var fs   = require('fs');
+var resolve = require('resolve');
 var jshintTrees = require('broccoli-jshint');
+var MergeTrees = require('broccoli-merge-trees');
+
 
 module.exports = {
   name: 'Ember CLI QUnit',
@@ -32,6 +35,20 @@ module.exports = {
 
   blueprintsPath: function() {
     return path.join(__dirname, 'blueprints');
+  },
+
+  treeForAddonTestSupport: function() {
+    var emberQUnitPath = path.dirname(resolve.sync('ember-qunit'));
+    var emberTestHelpersPath = path.dirname(resolve.sync('ember-test-helpers', { basedir: emberQUnitPath }));
+    var klassyPath = path.dirname(resolve.sync('klassy', { basedir: emberTestHelpersPath }));
+
+    var tree = new MergeTrees([
+      this.treeGenerator(emberQUnitPath),
+      this.treeGenerator(emberTestHelpersPath),
+      this.treeGenerator(klassyPath)
+    ]);
+
+    return tree;
   },
 
   included: function included(app, parentAddon) {
@@ -71,31 +88,6 @@ module.exports = {
       if (addonOptions && addonOptions.disableContainerStyles === false) {
         fileAssets.push('vendor/ember-cli-qunit/test-container-styles.css');
       }
-
-      var emberQunitPath = app.bowerDirectory + '/ember-qunit/ember-qunit.amd.js';
-      if (!fs.existsSync(emberQunitPath)) {
-        emberQunitPath = app.bowerDirectory + '/ember-qunit/named-amd/main.js';
-      }
-
-      app.import(emberQunitPath, {
-        type: 'test',
-        exports: {
-          'qunit': [
-            'default',
-            'module',
-            'test'
-          ],
-
-          'ember-qunit': [
-            'globalize',
-            'moduleFor',
-            'moduleForComponent',
-            'moduleForModel',
-            'test',
-            'setResolver'
-          ]
-        }
-      });
 
       fileAssets.forEach(function(file){
         app.import(file, {
