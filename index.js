@@ -5,10 +5,30 @@ var fs   = require('fs');
 var resolve = require('resolve');
 var jshintTrees = require('broccoli-jshint');
 var MergeTrees = require('broccoli-merge-trees');
-
+var BabelTranspiler = require('broccoli-babel-transpiler');
+var Concat = require('broccoli-sourcemap-concat');
+var VersionChecker = require('ember-cli-version-checker');
 
 module.exports = {
   name: 'Ember CLI QUnit',
+
+  _getDependencyTrees: function() {
+    if (this._dependencyTrees) {
+      return this._dependencyTrees;
+    }
+
+    var emberQUnitPath = path.dirname(resolve.sync('ember-qunit'));
+    var emberTestHelpersPath = path.dirname(resolve.sync('ember-test-helpers', { basedir: emberQUnitPath }));
+    var klassyPath = path.dirname(resolve.sync('klassy', { basedir: emberTestHelpersPath }));
+
+    this._dependencyTrees = [
+      this.treeGenerator(emberQUnitPath),
+      this.treeGenerator(emberTestHelpersPath),
+      this.treeGenerator(klassyPath)
+    ];
+
+    return this._dependencyTrees;
+  },
 
   buildConsole: function() {
     var ui = this.ui;
@@ -31,6 +51,12 @@ module.exports = {
 
   init: function() {
     this.buildConsole();
+
+    var checker = new VersionChecker(this);
+    var dep = checker.for('ember-cli', 'npm');
+
+    // support for Ember CLI < 2.2.0-beta.1
+    this._shouldImportEmberQUnit = !dep.gt('2.2.0-alpha');
   },
 
   blueprintsPath: function() {
@@ -38,17 +64,30 @@ module.exports = {
   },
 
   treeForAddonTestSupport: function() {
-    var emberQUnitPath = path.dirname(resolve.sync('ember-qunit'));
-    var emberTestHelpersPath = path.dirname(resolve.sync('ember-test-helpers', { basedir: emberQUnitPath }));
-    var klassyPath = path.dirname(resolve.sync('klassy', { basedir: emberTestHelpersPath }));
+    return new MergeTrees(this._getDependencyTrees());
+  },
 
-    var tree = new MergeTrees([
-      this.treeGenerator(emberQUnitPath),
-      this.treeGenerator(emberTestHelpersPath),
-      this.treeGenerator(klassyPath)
-    ]);
+  treeForVendor: function(tree) {
+    if (this._shouldImportEmberQUnit) {
+      // support for Ember CLI < 2.2.0-beta.1
+      var depTree = new MergeTrees(this._getDependencyTrees());
 
-    return tree;
+      var transpiled = new BabelTranspiler(depTree, {
+        loose: true,
+        moduleIds: true,
+        modules: 'amdStrict'
+      });
+
+      var concattedTree = new Concat(transpiled, {
+        inputFiles: ['**/*.js'],
+        outputFile: '/ember-qunit/ember-qunit.js',
+        annotation: 'Concat: Ember QUnit'
+      });
+
+      return new MergeTrees([concattedTree, tree]);
+    } else {
+      return tree;
+    }
   },
 
   included: function included(app, parentAddon) {
@@ -104,6 +143,11 @@ module.exports = {
     }
 
     this.jshintrc = app.options.jshintrc;
+
+    if (this._shouldImportEmberQUnit) {
+      // support for Ember CLI < 2.2.0-beta.1
+      app.import('vendor/ember-qunit/ember-qunit.js', { type: 'test' });
+    }
   },
 
   contentFor: function(type) {
