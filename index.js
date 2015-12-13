@@ -68,6 +68,13 @@ module.exports = {
   },
 
   treeForVendor: function(tree) {
+    var qunitPath = path.join(path.dirname(resolve.sync('qunitjs')), '..');
+
+    var trees = [
+      tree,
+      this.treeGenerator(qunitPath)
+    ];
+
     if (this._shouldImportEmberQUnit) {
       // support for Ember CLI < 2.2.0-beta.1
       var depTree = new MergeTrees(this._getDependencyTrees());
@@ -84,10 +91,12 @@ module.exports = {
         annotation: 'Concat: Ember QUnit'
       });
 
-      return new MergeTrees([concattedTree, tree]);
-    } else {
-      return tree;
+      trees.push(concattedTree);
     }
+
+    return new MergeTrees(trees, {
+      annotation: 'ember-cli-qunit: treeForVendor'
+    });
   },
 
   included: function included(app, parentAddon) {
@@ -102,8 +111,8 @@ module.exports = {
 
     if (app.tests) {
       var fileAssets = [
-        app.bowerDirectory + '/qunit/qunit/qunit.js',
-        app.bowerDirectory + '/qunit/qunit/qunit.css'
+        'vendor/qunit/qunit.js',
+        'vendor/qunit/qunit.css'
       ];
 
       var imgAssets = [];
