@@ -101,7 +101,7 @@ module.exports = {
 
   included: function included(app, parentAddon) {
     var target = (parentAddon || app);
-    this._super.included(target);
+    this._super.included.call(this, target);
 
     this.options = target.options;
 
