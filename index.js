@@ -55,8 +55,10 @@ module.exports = {
     var checker = new VersionChecker(this);
     var dep = checker.for('ember-cli', 'npm');
 
-    // support for Ember CLI < 2.2.0-beta.1
     this._shouldImportEmberQUnit = !dep.gt('2.2.0-alpha');
+    // fixed in https://github.com/ember-cli/ember-cli/pull/5274
+    // this can be removed when we no longer support 2.2.0-beta.{1,2}
+    this._shouldImportQUnit = !dep.gt('2.2.0-beta.2');
   },
 
   blueprintsPath: function() {
@@ -71,9 +73,12 @@ module.exports = {
     var qunitPath = path.join(path.dirname(resolve.sync('qunitjs')), '..');
 
     var trees = [
-      tree,
-      this.treeGenerator(qunitPath)
+      tree
     ];
+
+    if (!this._shouldImportQUnit) {
+      trees.push(this.treeGenerator(qunitPath));
+    }
 
     if (this._shouldImportEmberQUnit) {
       // support for Ember CLI < 2.2.0-beta.1
@@ -110,10 +115,21 @@ module.exports = {
     testSupportPath = path.dirname(testSupportPath) || 'assets';
 
     if (app.tests) {
-      var fileAssets = [
-        'vendor/qunit/qunit.js',
-        'vendor/qunit/qunit.css'
-      ];
+      var fileAssets;
+
+      if (this._shouldImportQUnit) {
+        // ember-cli < 2.2.0-beta.3 gets this from bower
+        fileAssets = [
+          target.bowerDirectory + '/qunit/qunit/qunit.js',
+          target.bowerDirectory + '/qunit/qunit/qunit.css'
+        ];
+      } else {
+        fileAssets = [
+          'vendor/qunit/qunit.js',
+          'vendor/qunit/qunit.css'
+        ];
+      }
+
 
       var imgAssets = [];
 
