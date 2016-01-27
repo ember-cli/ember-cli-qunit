@@ -8,6 +8,7 @@ var MergeTrees = require('broccoli-merge-trees');
 var BabelTranspiler = require('broccoli-babel-transpiler');
 var Concat = require('broccoli-sourcemap-concat');
 var VersionChecker = require('ember-cli-version-checker');
+var Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'Ember CLI QUnit',
@@ -195,7 +196,7 @@ module.exports = {
 
     var ui = this.ui;
 
-    return jshintTrees(tree, {
+    return jshintTrees(new Funnel(tree, { include: ['**/*.js'] }), {
       jshintrcPath: this.jshintrc[type],
       description: 'JSHint ' +  type + '- QUnit',
       console: this.console
