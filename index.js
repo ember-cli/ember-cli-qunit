@@ -189,9 +189,9 @@ module.exports = {
   lintTree: function(type, tree) {
     var addonContext = this;
     var disableLinting = this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].useLintTree === false;
-    var lintingAddonExists = this.project.addons.find(function(addon) {
+    var lintingAddonExists = this.project.addons.filter(function(addon) {
       return addonContext !== addon && addon.lintTree && addon.isDefaultJSLinter;
-    });
+    }).length > 0;
 
     // Skip if useLintTree === false.
     if (disableLinting || lintingAddonExists) {
