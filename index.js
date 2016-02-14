@@ -189,11 +189,11 @@ module.exports = {
   lintTree: function(type, tree) {
     var addonContext = this;
     var disableLinting = this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].useLintTree === false;
-    var lintingAddonExists = this.projects.addon.find(function(addon) {
+    var lintingAddonExists = !!this.projects && this.projects.addon.find(function(addon) {
       return addonContext !== addon && addon.lintTree && addon.isDefaultJSLinter;
     });
 
-    // Skip if useLintTree === false.
+    // Skip if useLintTree === false or linting addon exists.
     if (disableLinting || lintingAddonExists) {
       // Fakes an empty broccoli tree
       return { inputTree: tree, rebuild: function() { return []; } };
