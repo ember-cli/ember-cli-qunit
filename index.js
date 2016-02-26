@@ -59,6 +59,8 @@ module.exports = {
     // fixed in https://github.com/ember-cli/ember-cli/pull/5274
     // this can be removed when we no longer support 2.2.0-beta.{1,2}
     this._shouldImportQUnit = !dep.gt('2.2.0-beta.2');
+
+    this.setTestGenerator();
   },
 
   blueprintsPath: function() {
@@ -184,6 +186,21 @@ module.exports = {
 
   _readTemplate: function(name) {
     return fs.readFileSync(path.join(__dirname, 'templates', name + '.html'));
+  },
+
+  setTestGenerator: function() {
+    this.project.generateTestFile = function(moduleName, tests) {
+      var output = "QUnit.module('" + moduleName + "');\n";
+
+      tests.forEach(function(test) {
+        output += "QUnit.test('" + test.name + "', function(assert) {\n";
+        output += "  assert.expect(1);\n";
+        output += "  assert.ok(" + test.passed + ", '" + test.errorMessage + "');\n";
+        output += "});\n";
+      });
+
+      return output;
+    };
   },
 
   lintTree: function(type, tree) {
