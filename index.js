@@ -204,9 +204,11 @@ module.exports = {
   },
 
   lintTree: function(type, tree) {
+    var project = this.project;
+
     var addonContext = this;
     var disableLinting = this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].useLintTree === false;
-    var lintingAddonExists = this.project.addons.filter(function(addon) {
+    var lintingAddonExists = project.addons.filter(function(addon) {
       return addonContext !== addon && addon.lintTree && addon.isDefaultJSLinter;
     }).length > 0;
 
@@ -219,7 +221,20 @@ module.exports = {
     return jshintTrees(tree, {
       jshintrcPath: this.jshintrc[type],
       description: 'JSHint ' +  type + '- QUnit',
-      console: this.console
+      console: this.console,
+      testGenerator: function(relativePath, passed, errors) {
+        if (errors) {
+          errors = "\\n" + this.escapeErrorString(errors);
+        } else {
+          errors = "";
+        }
+
+        return project.generateTestFile('JSHint - ' + relativePath, [{
+          name: 'should pass jshint',
+          passed: !!passed,
+          errorMessage: relativePath + ' should pass jshint.' + errors
+        }]);
+      }
     });
   }
 };
