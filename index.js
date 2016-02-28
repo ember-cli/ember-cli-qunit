@@ -59,6 +59,8 @@ module.exports = {
     // fixed in https://github.com/ember-cli/ember-cli/pull/5274
     // this can be removed when we no longer support 2.2.0-beta.{1,2}
     this._shouldImportQUnit = !dep.gt('2.2.0-beta.2');
+
+    this.setTestGenerator();
   },
 
   blueprintsPath: function() {
@@ -186,10 +188,27 @@ module.exports = {
     return fs.readFileSync(path.join(__dirname, 'templates', name + '.html'));
   },
 
+  setTestGenerator: function() {
+    this.project.generateTestFile = function(moduleName, tests) {
+      var output = "QUnit.module('" + moduleName + "');\n";
+
+      tests.forEach(function(test) {
+        output += "QUnit.test('" + test.name + "', function(assert) {\n";
+        output += "  assert.expect(1);\n";
+        output += "  assert.ok(" + test.passed + ", '" + test.errorMessage + "');\n";
+        output += "});\n";
+      });
+
+      return output;
+    };
+  },
+
   lintTree: function(type, tree) {
+    var project = this.project;
+
     var addonContext = this;
     var disableLinting = this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].useLintTree === false;
-    var lintingAddonExists = this.project.addons.filter(function(addon) {
+    var lintingAddonExists = project.addons.filter(function(addon) {
       return addonContext !== addon && addon.lintTree && addon.isDefaultJSLinter;
     }).length > 0;
 
@@ -202,7 +221,20 @@ module.exports = {
     return jshintTrees(tree, {
       jshintrcPath: this.jshintrc[type],
       description: 'JSHint ' +  type + '- QUnit',
-      console: this.console
+      console: this.console,
+      testGenerator: function(relativePath, passed, errors) {
+        if (errors) {
+          errors = "\\n" + this.escapeErrorString(errors);
+        } else {
+          errors = "";
+        }
+
+        return project.generateTestFile('JSHint - ' + relativePath, [{
+          name: 'should pass jshint',
+          passed: !!passed,
+          errorMessage: relativePath + ' should pass jshint.' + errors
+        }]);
+      }
     });
   }
 };
