@@ -6,7 +6,7 @@ var resolve = require('resolve');
 var jshintTrees = require('broccoli-jshint');
 var MergeTrees = require('broccoli-merge-trees');
 var BabelTranspiler = require('broccoli-babel-transpiler');
-var Concat = require('broccoli-sourcemap-concat');
+var Concat = require('broccoli-concat');
 var VersionChecker = require('ember-cli-version-checker');
 
 module.exports = {
