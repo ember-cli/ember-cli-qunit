@@ -3,16 +3,23 @@
 jQuery(document).ready(function() {
   var TestLoaderModule = require('ember-cli/test-loader');
   var TestLoader = TestLoaderModule['default'];
+  var addModuleExcludeMatcher = TestLoaderModule['addModuleExcludeMatcher'];
   var addModuleIncludeMatcher = TestLoaderModule['addModuleIncludeMatcher'];
 
-  function moduleMatcher(moduleName) {
-    return moduleName.match(/\/.*[-_]test$/) || (!QUnit.urlParams.nojshint && moduleName.match(/\.jshint$/));
+  function excludeModule(moduleName) {
+    return QUnit.urlParams.nolint &&
+           moduleName.match(/\.(jshint|lint-test)$/);
   }
 
-  if (addModuleIncludeMatcher) {
-    addModuleIncludeMatcher(moduleMatcher);
+  function includeModule(moduleName) {
+    return moduleName.match(/\.jshint$/);
+  }
+
+  if (addModuleExcludeMatcher && addModuleIncludeMatcher) {
+    addModuleExcludeMatcher(excludeModule);
+    addModuleIncludeMatcher(includeModule);
   } else {
-    TestLoader.prototype.shouldLoadModule = moduleMatcher;
+    throw new Error("You must upgrade your version of ember-cli-test-loader to 1.0.0 to use this version of ember-cli-qunit")
   }
 
   TestLoader.prototype.moduleLoadFailure = function(moduleName, error) {
