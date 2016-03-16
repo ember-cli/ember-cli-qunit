@@ -1,7 +1,7 @@
 /* globals jQuery,QUnit */
 
 QUnit.config.urlConfig.push({ id: 'nocontainer', label: 'Hide container'});
-QUnit.config.urlConfig.push({ id: 'nojshint', label: 'Disable JSHint'});
+QUnit.config.urlConfig.push({ id: 'nolint', label: 'Disable Linting'});
 QUnit.config.urlConfig.push({ id: 'dockcontainer', label: 'Dock container'});
 QUnit.config.testTimeout = 60000; //Default Test Timeout 60 Seconds
 
