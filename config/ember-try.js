@@ -8,13 +8,10 @@ module.exports = {
       }
     },
     {
-      name: 'ember-1-13',
+      name: 'old-test-loader',
       bower: {
         dependencies: {
-          'ember': '~1.13.0'
-        },
-        resolutions: {
-          'ember': '~1.13.0'
+          'ember-cli-test-loader': '0.2.0'
         }
       }
     },
