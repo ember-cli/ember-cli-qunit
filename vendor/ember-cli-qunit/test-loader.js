@@ -19,7 +19,9 @@ jQuery(document).ready(function() {
     addModuleExcludeMatcher(excludeModule);
     addModuleIncludeMatcher(includeModule);
   } else {
-    throw new Error("You must upgrade your version of ember-cli-test-loader to 1.0.0 to use this version of ember-cli-qunit")
+    TestLoader.prototype.shouldLoadModule = function shouldLoadModule(moduleName) {
+      return (moduleName.match(/[-_]test$/) || includeModule(moduleName)) && !excludeModule(moduleName);
+    };
   }
 
   TestLoader.prototype.moduleLoadFailure = function(moduleName, error) {
