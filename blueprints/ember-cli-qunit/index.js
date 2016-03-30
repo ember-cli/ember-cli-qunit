@@ -1,3 +1,5 @@
+var RSVP = require('rsvp');
+
 module.exports = {
   normalizeEntityName: function() {
     // this prevents an error when the entityName is
@@ -6,9 +8,8 @@ module.exports = {
   },
 
   afterInstall: function() {
-    return this.addBowerPackagesToProject([
-      { name: 'ember-cli-test-loader',           target: '0.2.1'   },
-      { name: 'ember-qunit-notifications',       target: '0.1.0'   }
-    ]);
+    return this.addBowerPackageToProject('ember-qunit-notifications', '0.1.0').then(function() {
+      return this.addPackageToProject('ember-cli-test-loader', '^1.1.0');
+    });
   }
 };

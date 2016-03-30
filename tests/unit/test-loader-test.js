@@ -1,9 +1,15 @@
-/* globals QUnit */
+/* globals QUnit, require, requirejs */
 import { module, test } from 'qunit';
+
+var testLoaderModulePath = 'ember-cli-test-loader/test-support/index';
+
+if (!requirejs.entries[testLoaderModulePath]) {
+  testLoaderModulePath = 'ember-cli/test-loader';
+}
 
 module('Unit | test loader', {
   beforeEach() {
-    this.TestLoader = window.require('ember-cli/test-loader')['default'];
+    this.TestLoader = require(testLoaderModulePath)['default'];
 
     this.originalRequire = window.require;
     this.requiredModules = [];
