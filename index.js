@@ -3,7 +3,6 @@
 var path = require('path');
 var fs   = require('fs');
 var resolve = require('resolve');
-var jshintTrees = require('broccoli-jshint');
 var MergeTrees = require('broccoli-merge-trees');
 var BabelTranspiler = require('broccoli-babel-transpiler');
 var Concat = require('broccoli-concat');
@@ -30,28 +29,7 @@ module.exports = {
     return this._dependencyTrees;
   },
 
-  buildConsole: function() {
-    var ui = this.ui;
-
-    if (!ui) {
-      this.console = console;
-      return;
-    }
-
-    this.console = {
-      log: function(data) {
-        ui.writeLine(data);
-      },
-
-      error: function(data) {
-        ui.writeLine(data, 'ERROR');
-      }
-    };
-  },
-
   init: function() {
-    this.buildConsole();
-
     var checker = new VersionChecker(this);
     var dep = checker.for('ember-cli', 'npm');
 
@@ -201,40 +179,5 @@ module.exports = {
 
       return output;
     };
-  },
-
-  lintTree: function(type, tree) {
-    var project = this.project;
-
-    var addonContext = this;
-    var disableLinting = this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].useLintTree === false;
-    var lintingAddonExists = project.addons.filter(function(addon) {
-      return addonContext !== addon && addon.lintTree && addon.isDefaultJSLinter;
-    }).length > 0;
-
-    // Skip if useLintTree === false.
-    if (disableLinting || lintingAddonExists) {
-      // Fakes an empty broccoli tree
-      return { inputTree: tree, rebuild: function() { return []; } };
-    }
-
-    return jshintTrees(tree, {
-      jshintrcPath: this.jshintrc[type],
-      description: 'JSHint ' +  type + '- QUnit',
-      console: this.console,
-      testGenerator: function(relativePath, passed, errors) {
-        if (errors) {
-          errors = "\\n" + this.escapeErrorString(errors);
-        } else {
-          errors = "";
-        }
-
-        return project.generateTestFile('JSHint - ' + relativePath, [{
-          name: 'should pass jshint',
-          passed: !!passed,
-          errorMessage: relativePath + ' should pass jshint.' + errors
-        }]);
-      }
-    });
   }
 };
