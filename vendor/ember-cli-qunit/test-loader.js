@@ -30,12 +30,22 @@ jQuery(document).ready(function() {
     };
   }
 
+  var moduleLoadFailures = [];
+
   TestLoader.prototype.moduleLoadFailure = function(moduleName, error) {
+    moduleLoadFailures.push(error);
+
     QUnit.module('TestLoader Failures');
     QUnit.test(moduleName + ': could not be loaded', function() {
       throw error;
     });
   };
+
+  QUnit.done(function() {
+    if (moduleLoadFailures.length) {
+      throw new Error('\n' + moduleLoadFailures.join('\n'));
+    }
+  });
 
   var autostart = QUnit.config.autostart !== false;
   QUnit.config.autostart = false;
