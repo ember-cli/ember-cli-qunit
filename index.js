@@ -30,6 +30,8 @@ module.exports = {
   },
 
   init: function() {
+    this._super.init && this._super.init.apply(this, arguments);
+
     var checker = new VersionChecker(this);
     var dep = checker.for('ember-cli', 'npm');
 
