@@ -8,8 +8,6 @@ module.exports = {
   },
 
   afterInstall: function() {
-    return this.addBowerPackageToProject('ember-qunit-notifications', '0.1.0').then(function() {
-      return this.addPackageToProject('ember-cli-test-loader', '^1.1.0');
-    });
+    return this.addPackageToProject('ember-cli-test-loader', '^1.1.0');
   }
 };
