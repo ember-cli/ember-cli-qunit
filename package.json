@@ -28,15 +28,16 @@
   "dependencies": {
     "broccoli-babel-transpiler": "^5.5.0",
     "broccoli-concat": "^2.2.0",
+    "broccoli-funnel": "^1.0.1",
     "broccoli-merge-trees": "^1.1.0",
     "ember-cli-babel": "^5.1.5",
     "ember-cli-version-checker": "^1.1.4",
     "ember-qunit": "^0.4.18",
+    "qunit-notifications": "^0.1.1",
     "qunitjs": "^1.20.0",
     "resolve": "^1.1.6",
     "rsvp": "^3.2.1"
   },
-  "bundledDependencies": [],
   "devDependencies": {
     "ember-cli": "^2.4.2",
     "ember-cli-htmlbars": "^1.0.3",

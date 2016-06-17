@@ -4,6 +4,7 @@ var path = require('path');
 var fs   = require('fs');
 var resolve = require('resolve');
 var MergeTrees = require('broccoli-merge-trees');
+var Funnel = require('broccoli-funnel');
 var BabelTranspiler = require('broccoli-babel-transpiler');
 var Concat = require('broccoli-concat');
 var VersionChecker = require('ember-cli-version-checker');
@@ -55,7 +56,8 @@ module.exports = {
     var qunitPath = path.join(path.dirname(resolve.sync('qunitjs')), '..');
 
     var trees = [
-      tree
+      tree,
+      this._notificationsTree()
     ];
 
     if (!this._shouldImportQUnit) {
@@ -112,19 +114,8 @@ module.exports = {
         ];
       }
 
-
-      var imgAssets = [];
-
-      var qunitNotificationsPath = app.bowerDirectory + '/qunit-notifications/index.js';
-      if (fs.existsSync(qunitNotificationsPath)) {
-        fileAssets.push(qunitNotificationsPath);
-        imgAssets.push(
-          app.bowerDirectory + '/ember-qunit-notifications/passed.png',
-          app.bowerDirectory + '/ember-qunit-notifications/failed.png'
-        );
-      }
-
       fileAssets.push(
+        'vendor/qunit-notifications/index.js',
         'vendor/ember-cli-qunit/qunit-configuration.js',
         'vendor/ember-cli-qunit/test-loader.js'
       );
@@ -141,7 +132,12 @@ module.exports = {
         });
       });
 
-      imgAssets.forEach(function(img){
+      var imgAssets = [
+        'vendor/ember-cli-qunit/images/passed.png',
+        'vendor/ember-cli-qunit/images/failed.png'
+      ];
+
+      imgAssets.forEach(function(img) {
         app.import(img, {
           type: 'test',
           destDir: testSupportPath
@@ -155,6 +151,15 @@ module.exports = {
       // support for Ember CLI < 2.2.0-beta.1
       app.import('vendor/ember-qunit/ember-qunit.js', { type: 'test' });
     }
+  },
+
+  _notificationsTree: function() {
+    var notificationsPath = path.dirname(resolve.sync('qunit-notifications'));
+    return new Funnel(notificationsPath, {
+      include: [ 'index.js' ],
+      destDir: 'qunit-notifications',
+      annotation: 'qunit-notifications'
+    });
   },
 
   contentFor: function(type) {
