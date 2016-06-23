@@ -3,11 +3,6 @@
 var path = require('path');
 var fs   = require('fs');
 var resolve = require('resolve');
-var MergeTrees = require('broccoli-merge-trees');
-var Funnel = require('broccoli-funnel');
-var BabelTranspiler = require('broccoli-babel-transpiler');
-var Concat = require('broccoli-concat');
-var VersionChecker = require('ember-cli-version-checker');
 
 module.exports = {
   name: 'Ember CLI QUnit',
@@ -33,6 +28,7 @@ module.exports = {
   init: function() {
     this._super.init && this._super.init.apply(this, arguments);
 
+    var VersionChecker = require('ember-cli-version-checker');
     var checker = new VersionChecker(this);
     var dep = checker.for('ember-cli', 'npm');
 
@@ -49,10 +45,12 @@ module.exports = {
   },
 
   treeForAddonTestSupport: function() {
+    var MergeTrees = require('broccoli-merge-trees');
     return new MergeTrees(this._getDependencyTrees());
   },
 
   treeForVendor: function(tree) {
+    var MergeTrees = require('broccoli-merge-trees');
     var qunitPath = path.join(path.dirname(resolve.sync('qunitjs')), '..');
 
     var trees = [
@@ -68,12 +66,14 @@ module.exports = {
       // support for Ember CLI < 2.2.0-beta.1
       var depTree = new MergeTrees(this._getDependencyTrees());
 
+      var BabelTranspiler = require('broccoli-babel-transpiler');
       var transpiled = new BabelTranspiler(depTree, {
         loose: true,
         moduleIds: true,
         modules: 'amdStrict'
       });
 
+      var Concat = require('broccoli-concat');
       var concattedTree = new Concat(transpiled, {
         inputFiles: ['**/*.js'],
         outputFile: '/ember-qunit/ember-qunit.js',
@@ -154,6 +154,7 @@ module.exports = {
   },
 
   _notificationsTree: function() {
+    var Funnel = require('broccoli-funnel');
     var notificationsPath = path.dirname(resolve.sync('qunit-notifications'));
     return new Funnel(notificationsPath, {
       include: [ 'index.js' ],
