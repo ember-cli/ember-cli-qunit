@@ -39,7 +39,7 @@
     "rsvp": "^3.2.1"
   },
   "devDependencies": {
-    "ember-cli": "^2.4.2",
+    "ember-cli": "^2.7.0",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-resolver": "^2.0.3",
     "ember-try": "^0.2.2",
