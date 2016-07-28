@@ -23,12 +23,10 @@ jQuery(document).ready(function() {
   var params = QUnit.urlParams;
 
   var containerVisibility = params.nocontainer ? 'hidden' : 'visible';
-  var containerPosition = (params.dockcontainer || params.devmode) ? 'absolute' : 'relative';
 
   if (params.devmode) {
     testContainer.className = ' full-screen';
   }
 
   testContainer.style.visibility = containerVisibility;
-  testContainer.style.position = containerPosition;
 });
