@@ -15,6 +15,9 @@
   }
 
   ready(function() {
+    var QUnitAdapter = require('ember-qunit').QUnitAdapter;
+    Ember.Test.adapter = QUnitAdapter.create();
+
     var testLoaderModulePath = 'ember-cli-test-loader/test-support/index';
 
     if (!requirejs.entries[testLoaderModulePath]) {
