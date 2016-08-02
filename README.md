@@ -16,6 +16,8 @@ ember install ember-cli-qunit
 ember generate ember-cli-qunit
 ```
 
+If updating from a pre-2.x version, note that JSHint linting was extracted to [ember-cli-jshint](https://github.com/ember-cli/ember-cli-jshint).
+
 ### References
 
 * [qunit](https://github.com/jquery/qunit)
