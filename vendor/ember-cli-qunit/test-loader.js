@@ -1,7 +1,12 @@
-/* globals QUnit, require, requirejs */
+/* globals jQuery, QUnit, require, requirejs */
 
 (function() {
   function ready(fn) {
+    if (typeof jQuery === 'function') {
+      jQuery(document).ready(fn);
+      return;
+    }
+
     if (document.readyState != 'loading'){
       fn();
     } else {
