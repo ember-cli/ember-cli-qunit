@@ -1,4 +1,4 @@
-/* globals QUnit */
+/* globals jQuery, QUnit */
 
 (function() {
   QUnit.config.urlConfig.push({ id: 'nocontainer', label: 'Hide container'});
@@ -18,6 +18,11 @@
   }
 
   function ready(fn) {
+    if (typeof jQuery === 'function') {
+      jQuery(document).ready(fn);
+      return;
+    }
+
     if (document.readyState != 'loading'){
       fn();
     } else {
