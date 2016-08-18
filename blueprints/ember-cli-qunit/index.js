@@ -1,5 +1,3 @@
-var RSVP = require('rsvp');
-
 module.exports = {
   normalizeEntityName: function() {
     // this prevents an error when the entityName is
