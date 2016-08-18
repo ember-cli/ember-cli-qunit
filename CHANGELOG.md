@@ -1,14 +1,31 @@
 # Change Log
 
+## [v3.0.0-beta.2](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.0-beta.2) (2016-08-18)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.0-beta.1...v3.0.0-beta.2)
+
+**Merged pull requests:**
+
+- Use 2x for height and width of \#ember-testing. [\#144](https://github.com/ember-cli/ember-cli-qunit/pull/144) ([rwjblue](https://github.com/rwjblue))
+
+## [v3.0.0-beta.1](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.0-beta.1) (2016-08-18)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.1...v3.0.0-beta.1)
+
+**Implemented enhancements:**
+
+- Upgrade to latest qunitjs [\#141](https://github.com/ember-cli/ember-cli-qunit/issues/141)
+
+**Merged pull requests:**
+
+- Add CHANGELOG file [\#143](https://github.com/ember-cli/ember-cli-qunit/pull/143) ([Turbo87](https://github.com/Turbo87))
+- Upgrade QUnit to 2.0 [\#134](https://github.com/ember-cli/ember-cli-qunit/pull/134) ([trentmwillis](https://github.com/trentmwillis))
+- Remove backwards compat shims. [\#115](https://github.com/ember-cli/ember-cli-qunit/pull/115) ([rwjblue](https://github.com/rwjblue))
+
 ## [v2.2.1](https://github.com/ember-cli/ember-cli-qunit/tree/v2.2.1) (2016-08-03)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.0...v2.2.1)
 
 **Fixed bugs:**
 
 - No test cases to run [\#138](https://github.com/ember-cli/ember-cli-qunit/issues/138)
-
-**Merged pull requests:**
-
 - Use jQuery if it is present. [\#137](https://github.com/ember-cli/ember-cli-qunit/pull/137) ([rwjblue](https://github.com/rwjblue))
 
 ## [v2.2.0](https://github.com/ember-cli/ember-cli-qunit/tree/v2.2.0) (2016-08-02)
