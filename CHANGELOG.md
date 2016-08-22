@@ -1,5 +1,8 @@
 # Change Log
 
+## [v3.0.0](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.0) (2016-08-22)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.0-beta.2...v3.0.0)
+
 ## [v3.0.0-beta.2](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.0-beta.2) (2016-08-18)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.0-beta.1...v3.0.0-beta.2)
 
