@@ -13,6 +13,9 @@
       document.addEventListener('DOMContentLoaded', fn);
     }
   }
+  
+  var autostart = QUnit.config.autostart !== false;
+  QUnit.config.autostart = false;
 
   ready(function() {
     var QUnitAdapter = require('ember-qunit').QUnitAdapter;
@@ -63,9 +66,6 @@
         throw new Error('\n' + moduleLoadFailures.join('\n'));
       }
     });
-
-    var autostart = QUnit.config.autostart !== false;
-    QUnit.config.autostart = false;
 
     setTimeout(function() {
       TestLoader.load();
