@@ -121,8 +121,9 @@ module.exports = {
       );
 
       var addonOptions = target.options['ember-cli-qunit'];
-      // Skip if disableContainerStyles === false.
-      if (addonOptions && addonOptions.disableContainerStyles === false) {
+      var hasAddonOptions = !!addonOptions;
+      var explicitlyDisabledContainerStyles = hasAddonOptions && addonOptions.disableContainerStyles === true;
+      if (!explicitlyDisabledContainerStyles) {
         fileAssets.push('vendor/ember-cli-qunit/test-container-styles.css');
       }
 
