@@ -64,8 +64,12 @@
     var autostart = QUnit.config.autostart !== false;
     QUnit.config.autostart = false;
 
+    var autoload = QUnit.config.autoload !== false;
+
     setTimeout(function() {
-      TestLoader.load();
+      if (autoload) {
+        TestLoader.load();
+      }
 
       if (autostart) {
         QUnit.start();
