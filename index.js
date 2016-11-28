@@ -14,12 +14,10 @@ module.exports = {
 
     var emberQUnitPath = path.dirname(resolve.sync('ember-qunit'));
     var emberTestHelpersPath = path.dirname(resolve.sync('ember-test-helpers', { basedir: emberQUnitPath }));
-    var klassyPath = path.dirname(resolve.sync('klassy', { basedir: emberTestHelpersPath }));
 
     this._dependencyTrees = [
       this.treeGenerator(emberQUnitPath),
       this.treeGenerator(emberTestHelpersPath),
-      this.treeGenerator(klassyPath)
     ];
 
     return this._dependencyTrees;
