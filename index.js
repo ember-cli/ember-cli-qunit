@@ -37,7 +37,7 @@ module.exports = {
     // this can be removed when we no longer support 2.2.0-beta.{1,2}
     this._shouldImportQUnit = !dep.gt('2.2.0-beta.2');
 
-    this._shouldPreprocessAddonTestSupport = dep.gt('2.11.0-beta.1');
+    this._shouldPreprocessAddonTestSupport = !!this.options && !!this.options.babel;
 
     this.setTestGenerator();
   },
