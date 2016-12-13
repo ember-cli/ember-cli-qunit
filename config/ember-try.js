@@ -21,7 +21,6 @@ module.exports = {
       name: 'npm-test-loader',
       npm: {
         devDependencies: {
-          'ember-cli': 'ember-cli/ember-cli',
           'ember-cli-test-loader': '^1.1.0'
         }
       }
