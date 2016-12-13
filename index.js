@@ -37,6 +37,8 @@ module.exports = {
     // this can be removed when we no longer support 2.2.0-beta.{1,2}
     this._shouldImportQUnit = !dep.gt('2.2.0-beta.2');
 
+    this._shouldPreprocessAddonTestSupport = dep.gt('2.11.0-beta.1');
+
     this.setTestGenerator();
   },
 
@@ -46,7 +48,15 @@ module.exports = {
 
   treeForAddonTestSupport: function() {
     var MergeTrees = require('broccoli-merge-trees');
-    return new MergeTrees(this._getDependencyTrees());
+    var tree = new MergeTrees(this._getDependencyTrees());
+
+    if (this._shouldPreprocessAddonTestSupport) {
+      return this.preprocessJs(tree, {
+        registry: this.registry
+      });
+    } else {
+      return tree;
+    }
   },
 
   treeForVendor: function(tree) {
