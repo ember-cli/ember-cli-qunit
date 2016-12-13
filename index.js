@@ -35,6 +35,8 @@ module.exports = {
       throw new SilentError('ember-cli-qunit@3.0.0 and higher requires at least ember-cli@2.2.0. Please downgrade to ember-cli-qunit@2 for older ember-cli version support.');
     }
 
+    this._shouldPreprocessAddonTestSupport = dep.gt('2.11.0-beta.1');
+
     this.setTestGenerator();
   },
 
@@ -44,7 +46,15 @@ module.exports = {
 
   treeForAddonTestSupport: function() {
     var MergeTrees = require('broccoli-merge-trees');
-    return new MergeTrees(this._getDependencyTrees());
+    var tree = new MergeTrees(this._getDependencyTrees());
+
+    if (this._shouldPreprocessAddonTestSupport) {
+      return this.preprocessJs(tree, {
+        registry: this.registry
+      });
+    } else {
+      return tree;
+    }
   },
 
   treeForVendor: function(tree) {
