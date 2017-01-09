@@ -34,3 +34,12 @@ install:
 
 script:
   - ember try:one $EMBER_TRY_SCENARIO
+
+deploy:
+  provider: npm
+  email: stefan.penner+ember-cli@gmail.com
+  api_key:
+    secure: jYS1ZMOn+54LctBnRGLM4JccV5UrWw5X2N+u+8PcYXLwlfO1ajhCuXMCO41qzix3qDi6GSv/hisVyZAaYz6D9wj0iRfp7lpOQlfBcm5Nnkko+L43ftXEdecseZMYptMZaUf48ynV7xsvJ4AILSzLJCM3aazr6WOkknVGCEN0Y1c=
+  on:
+    tags: true
+    repo: ember-cli/ember-cli-qunit
