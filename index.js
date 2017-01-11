@@ -5,7 +5,7 @@ var fs   = require('fs');
 var resolve = require('resolve');
 
 module.exports = {
-  name: 'Ember CLI QUnit',
+  name: 'ember-cli-qunit',
 
   _getDependencyTrees: function() {
     if (this._dependencyTrees) {
