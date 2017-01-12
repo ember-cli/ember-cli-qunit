@@ -21,6 +21,7 @@ module('Unit | test loader', {
       'valid-test': true,
       'valid.jshint': true,
       'valid.lint-test': true,
+      'valid.template-lint-test': true,
       'valid-no-dot-lint-test': true,
       'nohyphentest': true,
     };
@@ -44,6 +45,7 @@ test('with nolint unconfigured', function(assert) {
       'valid-test',
       'valid.jshint',
       'valid.lint-test',
+      'valid.template-lint-test',
       'valid-no-dot-lint-test'
     ],
     "loads modules that end in -test.js, .jshint, or .lint-test");

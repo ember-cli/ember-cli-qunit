@@ -34,7 +34,7 @@
 
     function excludeModule(moduleName) {
       return QUnit.urlParams.nolint &&
-        moduleName.match(/\.(jshint|lint-test)$/);
+        moduleName.match(/\.(jshint|lint-test|template-lint-test)$/);
     }
 
     function includeModule(moduleName) {
