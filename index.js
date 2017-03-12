@@ -76,7 +76,7 @@ module.exports = {
     var target = (parentAddon || app);
     this._super.included.call(this, target);
 
-    this.options = target.options;
+    this.targetOptions = target.options;
 
     var testSupportPath = target.options.outputPaths.testSupport.js;
     testSupportPath = testSupportPath.testSupport || testSupportPath;
@@ -130,7 +130,7 @@ module.exports = {
 
   contentFor: function(type) {
     // Skip if insertContentForTestBody === false.
-    if (type === 'test-body' && !(this.options['ember-cli-qunit'] && this.options['ember-cli-qunit'].insertContentForTestBody === false)) {
+    if (type === 'test-body' && !(this.targetOptions['ember-cli-qunit'] && this.targetOptions['ember-cli-qunit'].insertContentForTestBody === false)) {
       return this._readTemplate('test-body');
     }
   },
