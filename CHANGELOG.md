@@ -1,5 +1,21 @@
 # Change Log
 
+## [v3.1.2](https://github.com/ember-cli/ember-cli-qunit/tree/v3.1.2) (2017-03-12)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.1.1...v3.1.2)
+
+**Merged pull requests:**
+
+- Prevent clobbering custom `this.options.babel`. [\#173](https://github.com/ember-cli/ember-cli-qunit/pull/173) ([rwjblue](https://github.com/rwjblue))
+
+## [v3.1.1](https://github.com/ember-cli/ember-cli-qunit/tree/v3.1.1) (2017-02-01)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.1.0...v3.1.1)
+
+**Merged pull requests:**
+
+- Override height in full-screen mode [\#170](https://github.com/ember-cli/ember-cli-qunit/pull/170) ([hidnasio](https://github.com/hidnasio))
+- Change addon name from Ember CLI QUnit to ember-cli-qunit [\#167](https://github.com/ember-cli/ember-cli-qunit/pull/167) ([trentmwillis](https://github.com/trentmwillis))
+- CI: Enable automatic NPM deployment for tags [\#166](https://github.com/ember-cli/ember-cli-qunit/pull/166) ([Turbo87](https://github.com/Turbo87))
+
 ## [v3.1.0](https://github.com/ember-cli/ember-cli-qunit/tree/v3.1.0) (2017-01-09)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.5...v3.1.0)
 
@@ -7,10 +23,6 @@
 
 - Convert `ember-cli-test-loader` to internal dependency [\#163](https://github.com/ember-cli/ember-cli-qunit/issues/163)
 - Convert "ember-cli-test-loader" to addon dependency [\#165](https://github.com/ember-cli/ember-cli-qunit/pull/165) ([Turbo87](https://github.com/Turbo87))
-
-**Closed issues:**
-
-- Wierd errors after upgrading to 3.0.4 [\#162](https://github.com/ember-cli/ember-cli-qunit/issues/162)
 
 ## [v2.2.5](https://github.com/ember-cli/ember-cli-qunit/tree/v2.2.5) (2016-12-13)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.4...v2.2.5)
@@ -25,10 +37,6 @@
 ## [v2.2.4](https://github.com/ember-cli/ember-cli-qunit/tree/v2.2.4) (2016-12-13)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.3...v2.2.4)
 
-**Merged pull requests:**
-
-- \[2.x\] Preprocess addon-test-support files in upcoming ember-cli [\#160](https://github.com/ember-cli/ember-cli-qunit/pull/160) ([trentmwillis](https://github.com/trentmwillis))
-
 ## [v3.0.3](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.3) (2016-12-13)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.2...v3.0.3)
 
@@ -39,16 +47,12 @@
 
 **Merged pull requests:**
 
+- \[2.x\] Preprocess addon-test-support files in upcoming ember-cli [\#160](https://github.com/ember-cli/ember-cli-qunit/pull/160) ([trentmwillis](https://github.com/trentmwillis))
 - Preprocess addon-test-support files in upcoming ember-cli [\#159](https://github.com/ember-cli/ember-cli-qunit/pull/159) ([trentmwillis](https://github.com/trentmwillis))
 - Update "ember-qunit" to v2.0.0-beta.1 [\#157](https://github.com/ember-cli/ember-cli-qunit/pull/157) ([Turbo87](https://github.com/Turbo87))
 
 ## [v3.0.2](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.2) (2016-09-28)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.3...v3.0.2)
-
-**Merged pull requests:**
-
-- Fix boolean for acceptance testing container styles. [\#152](https://github.com/ember-cli/ember-cli-qunit/pull/152) ([nathanhammond](https://github.com/nathanhammond))
-- ember-try@0.2.6 breaks build 🚨 [\#151](https://github.com/ember-cli/ember-cli-qunit/pull/151) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v2.2.3](https://github.com/ember-cli/ember-cli-qunit/tree/v2.2.3) (2016-09-28)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.1...v2.2.3)
@@ -59,12 +63,13 @@
 - Using test from shims produces deprecation warnings [\#148](https://github.com/ember-cli/ember-cli-qunit/issues/148)
 - Upgrading to 2.2.2 causes our tests to not run [\#147](https://github.com/ember-cli/ember-cli-qunit/issues/147)
 
-## [v3.0.1](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.1) (2016-09-11)
-[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.2...v3.0.1)
-
 **Merged pull requests:**
 
-- Prevent calling `QUnit.start` twice with jQuery 3.0. [\#145](https://github.com/ember-cli/ember-cli-qunit/pull/145) ([rwjblue](https://github.com/rwjblue))
+- Fix boolean for acceptance testing container styles. [\#152](https://github.com/ember-cli/ember-cli-qunit/pull/152) ([nathanhammond](https://github.com/nathanhammond))
+- ember-try@0.2.6 breaks build 🚨 [\#151](https://github.com/ember-cli/ember-cli-qunit/pull/151) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v3.0.1](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.1) (2016-09-11)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.2...v3.0.1)
 
 ## [v2.2.2](https://github.com/ember-cli/ember-cli-qunit/tree/v2.2.2) (2016-09-11)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.0...v2.2.2)
@@ -72,6 +77,7 @@
 **Merged pull requests:**
 
 - Prevent calling `QUnit.start` twice with jQuery 3.0. [\#146](https://github.com/ember-cli/ember-cli-qunit/pull/146) ([rwjblue](https://github.com/rwjblue))
+- Prevent calling `QUnit.start` twice with jQuery 3.0. [\#145](https://github.com/ember-cli/ember-cli-qunit/pull/145) ([rwjblue](https://github.com/rwjblue))
 
 ## [v3.0.0](https://github.com/ember-cli/ember-cli-qunit/tree/v3.0.0) (2016-08-22)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.0.0-beta.2...v3.0.0)
