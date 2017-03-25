@@ -44,9 +44,16 @@ module.exports = {
     return path.join(__dirname, 'blueprints');
   },
 
-  treeForAddonTestSupport: function() {
+  // intentionally not calling _super here
+  // to avoid these trees being namespaced into
+  // `ember-cli-qunit/test-support/`
+  treeForAddonTestSupport: function(onDiskAddonTestSupportTree) {
     var MergeTrees = require('broccoli-merge-trees');
-    var tree = new MergeTrees(this._getDependencyTrees());
+    var trees = [].concat(
+      this._getDependencyTrees(),
+      onDiskAddonTestSupportTree
+    );
+    var tree = new MergeTrees(trees);
 
     if (this._shouldPreprocessAddonTestSupport) {
       return this.preprocessJs(tree, {
@@ -88,7 +95,6 @@ module.exports = {
         'vendor/qunit/qunit.css',
         'vendor/qunit-notifications/index.js',
         'vendor/ember-cli-qunit/qunit-configuration.js',
-        'vendor/ember-cli-qunit/test-loader.js'
       ];
 
       var addonOptions = target.options['ember-cli-qunit'];
