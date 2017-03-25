@@ -3,6 +3,9 @@
   "version": "3.1.2",
   "description": "QUnit testing package for ember-cli applications",
   "main": "index.js",
+  "engines": {
+    "node": ">= 4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
