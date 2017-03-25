@@ -1,8 +1,8 @@
 'use strict';
 
-var path = require('path');
-var fs   = require('fs');
-var resolve = require('resolve');
+const path = require('path');
+const fs   = require('fs');
+const resolve = require('resolve');
 
 module.exports = {
   name: 'ember-cli-qunit',
@@ -12,8 +12,8 @@ module.exports = {
       return this._dependencyTrees;
     }
 
-    var emberQUnitPath = path.dirname(resolve.sync('ember-qunit'));
-    var emberTestHelpersPath = path.dirname(resolve.sync('ember-test-helpers', { basedir: emberQUnitPath }));
+    let emberQUnitPath = path.dirname(resolve.sync('ember-qunit'));
+    let emberTestHelpersPath = path.dirname(resolve.sync('ember-test-helpers', { basedir: emberQUnitPath }));
 
     this._dependencyTrees = [
       this.treeGenerator(emberQUnitPath),
@@ -26,12 +26,12 @@ module.exports = {
   init: function() {
     this._super.init && this._super.init.apply(this, arguments);
 
-    var VersionChecker = require('ember-cli-version-checker');
-    var checker = new VersionChecker(this);
-    var dep = checker.for('ember-cli', 'npm');
+    const VersionChecker = require('ember-cli-version-checker');
+    let checker = new VersionChecker(this);
+    let dep = checker.for('ember-cli', 'npm');
 
     if (!dep.gt('2.2.0-beta.2')) {
-      var SilentError = require('silent-error');
+      const SilentError = require('silent-error');
       throw new SilentError('ember-cli-qunit@3.0.0 and higher requires at least ember-cli@2.2.0. Please downgrade to ember-cli-qunit@2 for older ember-cli version support.');
     }
 
@@ -48,12 +48,12 @@ module.exports = {
   // to avoid these trees being namespaced into
   // `ember-cli-qunit/test-support/`
   treeForAddonTestSupport: function(onDiskAddonTestSupportTree) {
-    var MergeTrees = require('broccoli-merge-trees');
-    var trees = [].concat(
+    const MergeTrees = require('broccoli-merge-trees');
+    let trees = [].concat(
       this._getDependencyTrees(),
       onDiskAddonTestSupportTree
     );
-    var tree = new MergeTrees(trees);
+    let tree = new MergeTrees(trees);
 
     if (this._shouldPreprocessAddonTestSupport) {
       return this.preprocessJs(tree, {
@@ -65,10 +65,10 @@ module.exports = {
   },
 
   treeForVendor: function(tree) {
-    var MergeTrees = require('broccoli-merge-trees');
-    var qunitPath = path.join(path.dirname(resolve.sync('qunitjs')), '..');
+    const MergeTrees = require('broccoli-merge-trees');
+    let qunitPath = path.join(path.dirname(resolve.sync('qunitjs')), '..');
 
-    var trees = [
+    let trees = [
       tree,
       this._notificationsTree(),
       this.treeGenerator(qunitPath)
@@ -80,26 +80,26 @@ module.exports = {
   },
 
   included: function included(app, parentAddon) {
-    var target = (parentAddon || app);
+    let target = (parentAddon || app);
     this._super.included.call(this, target);
 
     this.targetOptions = target.options;
 
-    var testSupportPath = target.options.outputPaths.testSupport.js;
+    let testSupportPath = target.options.outputPaths.testSupport.js;
     testSupportPath = testSupportPath.testSupport || testSupportPath;
     testSupportPath = path.dirname(testSupportPath) || 'assets';
 
     if (app.tests) {
-      var fileAssets = [
+      let fileAssets = [
         'vendor/qunit/qunit.js',
         'vendor/qunit/qunit.css',
         'vendor/qunit-notifications/index.js',
         'vendor/ember-cli-qunit/qunit-configuration.js',
       ];
 
-      var addonOptions = target.options['ember-cli-qunit'];
-      var hasAddonOptions = !!addonOptions;
-      var explicitlyDisabledContainerStyles = hasAddonOptions && addonOptions.disableContainerStyles === true;
+      let addonOptions = target.options['ember-cli-qunit'];
+      let hasAddonOptions = !!addonOptions;
+      let explicitlyDisabledContainerStyles = hasAddonOptions && addonOptions.disableContainerStyles === true;
       if (!explicitlyDisabledContainerStyles) {
         fileAssets.push('vendor/ember-cli-qunit/test-container-styles.css');
       }
@@ -110,7 +110,7 @@ module.exports = {
         });
       });
 
-      var imgAssets = [
+      let imgAssets = [
         'vendor/ember-cli-qunit/images/passed.png',
         'vendor/ember-cli-qunit/images/failed.png'
       ];
@@ -125,8 +125,8 @@ module.exports = {
   },
 
   _notificationsTree: function() {
-    var Funnel = require('broccoli-funnel');
-    var notificationsPath = path.dirname(resolve.sync('qunit-notifications'));
+    const Funnel = require('broccoli-funnel');
+    let notificationsPath = path.dirname(resolve.sync('qunit-notifications'));
     return new Funnel(notificationsPath, {
       include: [ 'index.js' ],
       destDir: 'qunit-notifications',
@@ -147,7 +147,7 @@ module.exports = {
 
   setTestGenerator: function() {
     this.project.generateTestFile = function(moduleName, tests) {
-      var output = "QUnit.module('" + moduleName + "');\n";
+      let output = "QUnit.module('" + moduleName + "');\n";
 
       tests.forEach(function(test) {
         output += "QUnit.test('" + test.name + "', function(assert) {\n";
