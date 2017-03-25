@@ -1,7 +1,20 @@
 # Change Log
 
-## [v3.1.2](https://github.com/ember-cli/ember-cli-qunit/tree/v3.1.2) (2017-03-12)
-[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.1.1...v3.1.2)
+## [v4.0.0](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.0) (2017-03-25)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.6...v4.0.0)
+
+**Closed issues:**
+
+- Replace auto-load with "loader" function [\#171](https://github.com/ember-cli/ember-cli-qunit/issues/171)
+
+**Merged pull requests:**
+
+- Update associated dependnecies to Babel 6. [\#177](https://github.com/ember-cli/ember-cli-qunit/pull/177) ([rwjblue](https://github.com/rwjblue))
+- Replace autostart behavior with hook to start tests. [\#176](https://github.com/ember-cli/ember-cli-qunit/pull/176) ([rwjblue](https://github.com/rwjblue))
+- Update to Babel 6. [\#175](https://github.com/ember-cli/ember-cli-qunit/pull/175) ([rwjblue](https://github.com/rwjblue))
+
+## [v2.2.6](https://github.com/ember-cli/ember-cli-qunit/tree/v2.2.6) (2017-03-12)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v3.1.1...v2.2.6)
 
 **Merged pull requests:**
 
