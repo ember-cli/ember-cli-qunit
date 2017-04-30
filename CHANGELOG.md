@@ -1,7 +1,23 @@
 # Change Log
 
-## [v4.0.0](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.0) (2017-03-25)
-[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.6...v4.0.0)
+## [v4.0.0](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.0) (2017-04-30)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.0-beta.1...v4.0.0)
+
+**Closed issues:**
+
+- skipping first test in a module leaves module undefined during test hooks [\#179](https://github.com/ember-cli/ember-cli-qunit/issues/179)
+- ember-qunit to 2.1.2 [\#178](https://github.com/ember-cli/ember-cli-qunit/issues/178)
+- Maximum call stack size exceeded [\#174](https://github.com/ember-cli/ember-cli-qunit/issues/174)
+- Wierd errors after upgrading to 3.0.4 [\#162](https://github.com/ember-cli/ember-cli-qunit/issues/162)
+- Provide ability to inject html into test-body [\#154](https://github.com/ember-cli/ember-cli-qunit/issues/154)
+- rootElement isn't expressive enough. [\#81](https://github.com/ember-cli/ember-cli-qunit/issues/81)
+
+**Merged pull requests:**
+
+- don't cover open Module drop-down [\#180](https://github.com/ember-cli/ember-cli-qunit/pull/180) ([mminkoff](https://github.com/mminkoff))
+
+## [v4.0.0-beta.1](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.0-beta.1) (2017-03-25)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v2.2.6...v4.0.0-beta.1)
 
 **Closed issues:**
 
