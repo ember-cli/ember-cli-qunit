@@ -1725,11 +1725,11 @@ ember-load-initializers@^1.0.0:
   dependencies:
     ember-cli-babel "^6.0.0-beta.7"
 
-ember-qunit@^2.0.0-beta.1:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-2.1.0.tgz#42caad88f477455f99e7cba1cde568967fa74046"
+ember-qunit@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-2.1.3.tgz#b3d9d4ddbcdb157cbd89ce6ad9caf51e3775f282"
   dependencies:
-    ember-test-helpers "^0.6.0-beta.1"
+    ember-test-helpers "^0.6.3"
 
 ember-resolver@^4.0.0:
   version "4.0.0"
@@ -1744,7 +1744,7 @@ ember-router-generator@^1.0.0:
   dependencies:
     recast "^0.11.3"
 
-ember-test-helpers@^0.6.0-beta.1:
+ember-test-helpers@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/ember-test-helpers/-/ember-test-helpers-0.6.3.tgz#f864cdf6f4e75f3f8768d6537785b5ab6e82d907"
 
