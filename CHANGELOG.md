@@ -1,5 +1,27 @@
 # Change Log
 
+## [v4.0.1](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.1) (2017-08-29)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.0...v4.0.1)
+
+**Implemented enhancements:**
+
+- CI: Use "auto-dist-tag" for deployment [\#181](https://github.com/ember-cli/ember-cli-qunit/pull/181) ([Turbo87](https://github.com/Turbo87))
+
+**Fixed bugs:**
+
+- Dependency on ember-cli-babel 6.0.0 beta blocks Node 7 [\#185](https://github.com/ember-cli/ember-cli-qunit/issues/185)
+
+**Closed issues:**
+
+- v4.0.0 just hangs [\#184](https://github.com/ember-cli/ember-cli-qunit/issues/184)
+- Tests hanging upgrading from 2.2.5 to 4.0.0 [\#183](https://github.com/ember-cli/ember-cli-qunit/issues/183)
+- Tests are hanging with v4.0.0 [\#182](https://github.com/ember-cli/ember-cli-qunit/issues/182)
+
+**Merged pull requests:**
+
+- Update ember-cli-version-checker [\#187](https://github.com/ember-cli/ember-cli-qunit/pull/187) ([ef4](https://github.com/ef4))
+- Bump ember-cli-babel for Node 8 support [\#186](https://github.com/ember-cli/ember-cli-qunit/pull/186) ([trentmwillis](https://github.com/trentmwillis))
+
 ## [v4.0.0](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.0) (2017-04-30)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.0-beta.1...v4.0.0)
 
@@ -444,7 +466,7 @@
 
 - Use `ui` if present for linting and logging. [\#52](https://github.com/ember-cli/ember-cli-qunit/pull/52) ([rwjblue](https://github.com/rwjblue))
 - Update package.json [\#51](https://github.com/ember-cli/ember-cli-qunit/pull/51) ([kategengler](https://github.com/kategengler))
-- Remove ember-qunit-notifications dependency [\#50](https://github.com/ember-cli/ember-cli-qunit/pull/50) ([gdub22](https://github.com/gdub22))
+- Remove ember-qunit-notifications dependency [\#50](https://github.com/ember-cli/ember-cli-qunit/pull/50) ([gpoitch](https://github.com/gpoitch))
 
 ## [v0.3.8](https://github.com/ember-cli/ember-cli-qunit/tree/v0.3.8) (2015-02-15)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v0.3.7...v0.3.8)
