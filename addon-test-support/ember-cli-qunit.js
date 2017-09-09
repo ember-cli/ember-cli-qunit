@@ -51,7 +51,7 @@ export function setupTestContainer() {
   let params = QUnit.urlParams;
 
   let containerVisibility = params.nocontainer ? 'hidden' : 'visible';
-  let containerPosition = (params.dockcontainer || params.devmode) ? 'absolute' : 'relative';
+  let containerPosition = (params.dockcontainer || params.devmode) ? 'fixed' : 'relative';
 
   if (params.devmode) {
     testContainer.className = ' full-screen';
@@ -59,6 +59,11 @@ export function setupTestContainer() {
 
   testContainer.style.visibility = containerVisibility;
   testContainer.style.position = containerPosition;
+
+  let qunitContainer = document.getElementById('qunit');
+  if (params.dockcontainer) {
+    qunitContainer.style.marginBottom = window.getComputedStyle(testContainer).height;
+  }
 }
 
 /**
