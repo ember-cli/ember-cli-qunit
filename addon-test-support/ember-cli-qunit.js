@@ -61,8 +61,7 @@ export function setupTestContainer() {
   testContainer.style.position = containerPosition;
 
   let qunitContainer = document.getElementById('qunit');
-  let testContainerHeight = window.getComputedStyle(testContainer).height;
-  if (qunitContainer && params.dockcontainer && testContainerHeight) {
+  if (params.dockcontainer) {
     qunitContainer.style.marginBottom = window.getComputedStyle(testContainer).height;
   }
 }
