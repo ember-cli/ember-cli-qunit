@@ -2,7 +2,7 @@
 module.exports = {
   scenarios: [
     {
-      name: 'default',
+      name: 'old-test-loader',
       bower: {
         dependencies: {
           'ember-cli-test-loader': '0.2.2'
@@ -10,18 +10,10 @@ module.exports = {
       }
     },
     {
-      name: 'old-test-loader',
-      bower: {
-        dependencies: {
-          'ember-cli-test-loader': '0.2.0'
-        }
-      }
-    },
-    {
-      name: 'npm-test-loader',
+      name: 'default',
       npm: {
         devDependencies: {
-          'ember-cli-test-loader': '^1.1.0'
+          'ember-cli-test-loader': '^2.2.0'
         }
       }
     },
@@ -30,10 +22,14 @@ module.exports = {
       bower: {
         dependencies: {
           'ember': 'components/ember#release',
-          'ember-cli-test-loader': '0.2.2'
         },
         resolutions: {
           'ember': 'release'
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-cli-test-loader': '^2.2.0'
         }
       }
     },
@@ -42,10 +38,14 @@ module.exports = {
       bower: {
         dependencies: {
           'ember': 'components/ember#beta',
-          'ember-cli-test-loader': '0.2.2'
         },
         resolutions: {
-          'ember': 'beta'
+          'ember': 'beta',
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-cli-test-loader': '^2.2.0',
         }
       }
     },
@@ -54,10 +54,14 @@ module.exports = {
       bower: {
         dependencies: {
           'ember': 'components/ember#canary',
-          'ember-cli-test-loader': '0.2.2'
         },
         resolutions: {
-          'ember': 'canary'
+          'ember': 'canary',
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-cli-test-loader': '^2.2.0',
         }
       }
     }
