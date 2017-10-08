@@ -1,6 +1,13 @@
 # Change Log
 
-## [v4.1.0-beta.1](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0-beta.1) (2017-10-07)
+## [v4.1.0-beta.2](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0-beta.2) (2017-10-08)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.1.0-beta.1...v4.1.0-beta.2)
+
+**Merged pull requests:**
+
+- Ensure contentFor and setTestGenerator are forwarded to ember-qunit. [\#192](https://github.com/ember-cli/ember-cli-qunit/pull/192) ([rwjblue](https://github.com/rwjblue))
+
+## [v4.1.0-beta.1](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0-beta.1) (2017-10-08)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.1...v4.1.0-beta.1)
 
 **Closed issues:**
