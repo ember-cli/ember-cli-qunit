@@ -1,5 +1,18 @@
 # Change Log
 
+## [v4.1.0-beta.1](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0-beta.1) (2017-10-07)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.1...v4.1.0-beta.1)
+
+**Closed issues:**
+
+- Qunit Issues with Ember 2.10 and Qunit 3.01 [\#172](https://github.com/ember-cli/ember-cli-qunit/issues/172)
+
+**Merged pull requests:**
+
+- Remove functionality to defer to ember-qunit API. [\#191](https://github.com/ember-cli/ember-cli-qunit/pull/191) ([rwjblue](https://github.com/rwjblue))
+- Add RELEASE.md documentation [\#189](https://github.com/ember-cli/ember-cli-qunit/pull/189) ([trentmwillis](https://github.com/trentmwillis))
+- docked testContainer should stick to the bottom of the window [\#188](https://github.com/ember-cli/ember-cli-qunit/pull/188) ([tony2n2](https://github.com/tony2n2))
+
 ## [v4.0.1](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.1) (2017-08-29)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.0...v4.0.1)
 
