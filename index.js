@@ -17,8 +17,4 @@ module.exports = {
       registry: this.registry,
     });
   },
-
-  setTestGenerator() {
-    this.eachAddonInvoke('setTestGenerator');
-  },
 };
