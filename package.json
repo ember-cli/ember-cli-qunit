@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-qunit",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "QUnit testing package for ember-cli applications",
   "main": "index.js",
   "engines": {
@@ -35,8 +35,8 @@
     "ember-cli-test-loader": "^2.2.0",
     "ember-cli-version-checker": "^2.0.0",
     "ember-qunit": "^2.2.0",
-    "qunit-notifications": "^0.1.1",
     "qunit": "^2.4.1",
+    "qunit-notifications": "^0.1.1",
     "resolve": "^1.4.0",
     "silent-error": "^1.1.0"
   },
