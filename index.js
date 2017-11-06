@@ -66,7 +66,7 @@ module.exports = {
 
   treeForVendor: function(tree) {
     const MergeTrees = require('broccoli-merge-trees');
-    let qunitPath = path.join(path.dirname(resolve.sync('qunitjs')), '..');
+    let qunitPath = path.join(path.dirname(resolve.sync('qunit')), '..');
 
     let trees = [
       tree,
