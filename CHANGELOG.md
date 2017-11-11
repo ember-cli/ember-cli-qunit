@@ -1,5 +1,26 @@
 # Change Log
 
+## [v4.1.0](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0) (2017-11-11)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.2...v4.1.0)
+
+**Closed issues:**
+
+- Error: Merge error: conflicting capitalizations [\#195](https://github.com/ember-cli/ember-cli-qunit/issues/195)
+
+## [v4.0.2](https://github.com/ember-cli/ember-cli-qunit/tree/v4.0.2) (2017-11-06)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.1.0-beta.3...v4.0.2)
+
+## [v4.1.0-beta.3](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0-beta.3) (2017-11-06)
+[Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.1.0-beta.2...v4.1.0-beta.3)
+
+**Closed issues:**
+
+- generateTestFile\(\) can generate broken code [\#142](https://github.com/ember-cli/ember-cli-qunit/issues/142)
+
+**Merged pull requests:**
+
+- Remove `setTestGenerator` shenanigans. [\#193](https://github.com/ember-cli/ember-cli-qunit/pull/193) ([rwjblue](https://github.com/rwjblue))
+
 ## [v4.1.0-beta.2](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0-beta.2) (2017-10-08)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.1.0-beta.1...v4.1.0-beta.2)
 
