@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | qunit configuration');
