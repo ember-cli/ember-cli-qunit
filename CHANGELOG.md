@@ -1,5 +1,13 @@
 # Change Log
 
+## v4.2.0 (2017-12-17)
+
+#### :rocket: Enhancement
+* [#196](https://github.com/ember-cli/ember-cli-qunit/pull/196) Update ember-qunit to 3.2.0 (includes `setupApplicationTest`).. ([@rwjblue](https://github.com/rwjblue))
+
+#### Committers: 1
+- Robert Jackson ([rwjblue](https://github.com/rwjblue))
+
 ## [v4.1.0](https://github.com/ember-cli/ember-cli-qunit/tree/v4.1.0) (2017-11-11)
 [Full Changelog](https://github.com/ember-cli/ember-cli-qunit/compare/v4.0.2...v4.1.0)
 
