@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import moduleForAcceptance from '../helpers/module-for-acceptance';
 import { test } from 'qunit';
 
