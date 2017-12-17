@@ -34,7 +34,7 @@
   "homepage": "https://github.com/ember-cli/ember-cli-qunit",
   "dependencies": {
     "ember-cli-babel": "^6.8.1",
-    "ember-qunit": "^3.1.0"
+    "ember-qunit": "^3.2.0"
   },
   "devDependencies": {
     "ember-cli": "^2.4.2",
