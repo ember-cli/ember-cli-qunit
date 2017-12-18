@@ -1,5 +1,18 @@
 # Change Log
 
+## v4.2.1 (2017-12-18)
+
+#### :bug: Bug Fix
+* [#198](https://github.com/ember-cli/ember-cli-qunit/pull/198) Update minimum version of ember-qunit. ([@rwjblue](https://github.com/rwjblue))
+  * Ensures re-exports from ember-test-helpers are still present (with a deprecation).
+  * Ensures that `Ember.testing` is set properly from "normal" non `moduleFor*` and/or `setup*Test` style tests.
+
+#### :house: Internal
+* [#197](https://github.com/ember-cli/ember-cli-qunit/pull/197) Update ember-cli blueprint to 2.17.1.. ([@rwjblue](https://github.com/rwjblue))
+
+#### Committers: 1
+- Robert Jackson ([rwjblue](https://github.com/rwjblue))
+
 ## v4.2.0 (2017-12-17)
 
 #### :rocket: Enhancement
