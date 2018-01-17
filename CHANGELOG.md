@@ -1,5 +1,17 @@
 # Change Log
 
+## v4.3.0 (2018-01-17)
+
+#### :bug: Bug Fix
+* Update minimum version of ember-qunit to 3.3.0.
+  * [emberjs/ember-qunit#307](https://github.com/emberjs/ember-qunit/pull/307) Remove `exception` method from QUnit test adapter when using Ember 2.17+.  ([@rwjblue](https://github.com/rwjblue))
+  * [emberjs/ember-qunit#306](https://github.com/emberjs/ember-qunit/pull/306) Update to QUnit 2.5.0. ([@rwjblue](https://github.com/rwjblue))
+    * Adds `assert.rejects`.
+    * Reduces the delays around `assert.async` and returning promises from hook methods.
+    * Adds a native promise unhandled rejection handler.
+    * Fixes an issue with `notrycatch` mode being ignored for promises returned (e.g. it would previously always `.catch` every returned promise).
+  * [emberjs/ember-qunit#304](https://github.com/emberjs/ember-qunit/pull/304) [BREAKING BUGFIX] Add validation for `Ember.onerror` in testing. ([@rwjblue](https://github.com/rwjblue))
+
 ## v4.2.1 (2017-12-18)
 
 #### :bug: Bug Fix
