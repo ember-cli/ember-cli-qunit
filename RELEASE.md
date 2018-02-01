@@ -32,6 +32,3 @@ That should bump the version in `package.json`, commit it, and then tag it. Be s
 
 ## Publish
 Next, push the version bump and the changelog changes to the repository. Upon successful build of the tag, Travis CI will publish to `npm`.
-
-Finally, update the [GitHub Releases page](https://github.com/ember-cli/ember-cli-qunit/releases) with a new release; using the changelog info as the release notes.
-
