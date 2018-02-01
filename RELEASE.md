@@ -4,15 +4,15 @@ The following is the release process you should follow to publish a new version 
 
 ## Update The Changelog
 
-First, we need to update the `CHANGELOG.md` file for the project. We do this via the [GitHub Changelog Generator](https://github.com/skywinder/github-changelog-generator/), using the following command:
+First, we need to update the `CHANGELOG.md` file for the project. We do this via the [lerna-changelog](https://github.com/lerna/lerna-changelog). This requires all PRs to be labeled appropriately. Use the following command to generate the changelog from the most recent tag:
 
 ```bash
-github_changelog_generator --future-release vx.x.x
+yarn changelog
 ```
 
-Where you replace the `x.x.x` with the appropriate version you are publishing.
+Copy the output into `CHANGELOG.md`, where you replace the `Unreleased` with the appropriate version you are publishing.
 
-_Note: Ensure you set up a [GitHub Token](https://github.com/skywinder/github-changelog-generator/#github-token) when using the changelog generator, or else it will not work properly._
+_Note: Ensure you set up a GitHub Token when using the changelog generator, or else it will not work properly._
 
 Review the changes and then commit them with a message like:
 
@@ -28,18 +28,10 @@ Next, we bump the version of the addon and tag it. You can do this by using the 
 npm version x.x.x
 ```
 
-That should bump the version in `package.json`, commit it, and then tag it.
+That should bump the version in `package.json`, commit it, and then tag it. Be sure to push the commit and tag.
 
-Next, push the version bump and the changelog changes to the repository.
-
-## Publish The Release
-
-Once the changes have been pushed, run:
-
-```bash
-npm publish
-```
-
-To actually publish the new release.
+## Publish
+Next, push the version bump and the changelog changes to the repository. Upon successful build of the tag, Travis CI will publish to `npm`.
 
 Finally, update the [GitHub Releases page](https://github.com/ember-cli/ember-cli-qunit/releases) with a new release; using the changelog info as the release notes.
+
