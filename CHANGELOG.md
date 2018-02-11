@@ -1,5 +1,17 @@
 # Change Log
 
+## v4.3.1 (2018-02-11)
+
+#### :rocket: Enhancement
+* [#204](https://github.com/ember-cli/ember-cli-qunit/pull/204) Update dependencies to latest versions. ([@rwjblue](https://github.com/rwjblue))
+
+#### :house: Internal
+* [#200](https://github.com/ember-cli/ember-cli-qunit/pull/200) Update RELEASE.md for lerna-changelog & travis deploy. ([@kategengler](https://github.com/kategengler))
+
+#### Committers: 2
+- Katie Gengler ([kategengler](https://github.com/kategengler))
+- Robert Jackson ([rwjblue](https://github.com/rwjblue))
+
 ## v4.3.0 (2018-01-17)
 
 #### :bug: Bug Fix
