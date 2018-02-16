@@ -1,5 +1,13 @@
 # Change Log
 
+## v4.3.2 (2018-02-16)
+
+#### :bug: Bug Fix
+* Update ember-qunit to 3.3.2 (fixing an issue with `waitUntil`)
+
+#### Committers: 1
+- Robert Jackson ([rwjblue](https://github.com/rwjblue))
+
 ## v4.3.1 (2018-02-11)
 
 #### :rocket: Enhancement
