@@ -8,6 +8,7 @@ var MergeTrees = require('broccoli-merge-trees');
 var BabelTranspiler = require('broccoli-babel-transpiler');
 var Concat = require('broccoli-concat');
 var VersionChecker = require('ember-cli-version-checker');
+var Null = require('broccoli-null');
 
 module.exports = {
   name: 'Ember CLI QUnit',
@@ -216,8 +217,7 @@ module.exports = {
 
     // Skip if useLintTree === false.
     if (disableLinting || lintingAddonExists) {
-      // Fakes an empty broccoli tree
-      return { inputTree: tree, rebuild: function() { return []; } };
+      return Null.NULL;
     }
 
     return jshintTrees(tree, {
