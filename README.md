@@ -1,28 +1,19 @@
 ## ember-cli-qunit
 
-This addon that adds `QUnit` to the generated Ember CLI test output (in `test-support.js`).
+**NOTE: This addon has been deprecated! Please use ember-qunit directly instead.**
 
-### Installation / Usage
+### Migrating to `ember-qunit`
 
-From within your Ember CLI application run the following:
+To upgrade from `ember-cli-qunit@4` to `ember-qunit@4` perform the following:
 
-```bash
-ember install ember-cli-qunit
-```
+#### `yarn`
 
-### Upgrading
+* `yarn remove ember-cli-qunit`
+* `yarn add -D ember-qunit`
+* Update `tests/test-helper.js` to replace any imports from `ember-cli-qunit` with an import from `ember-qunit`.
 
-To upgrade from `ember-cli-qunit@3` to `ember-cli-qunit@4` perform the following:
+#### `npm`
 
-* `yarn upgrade ember-cli-qunit@^4` or `npm install --save-dev ember-cli-qunit@^4`
-* Add the following snippet to your `tests/test-helper.js` file:
-
-```js
-import { start } from 'ember-cli-qunit';
-
-start();
-```
-
-### References
-
-* [qunit](https://github.com/jquery/qunit)
+* `npm uninstall --save-dev ember-cli-qunit`
+* `npm install --save-dev ember-qunit`
+* Update `tests/test-helper.js` to replace any imports from `ember-cli-qunit` with an import from `ember-qunit`.
